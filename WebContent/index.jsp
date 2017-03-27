@@ -13,19 +13,19 @@
     <!-- HTML注释 客户端可见 -->
     <%-- JSP注释 客户端不可见 --%>
     
-    <%-- 声明Java --%>
+    <%-- 声明标签 --%>
     <%!
     String s = "王小二";
     public int sum(int x, int y) {
     	return x + y;
     }
     %>
-    
+    <%-- 脚本标签 --%>
     <%
     // JSP内置对象
     out.println("Hello JSP");
     %>
-    
+    <%-- 表达式标签 --%>
     <br>
     Hello <%=s %><br>
     x+y=<%=sum(1, 3) %>
