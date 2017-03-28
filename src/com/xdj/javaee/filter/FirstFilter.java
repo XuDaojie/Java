@@ -12,7 +12,7 @@ import javax.servlet.ServletResponse;
 /**
  * Created by xdj on 2017/3/28.
  */
-public class FilterFirst implements Filter {
+public class FirstFilter implements Filter {
     public void destroy() {
         System.out.println("destroy");
     }

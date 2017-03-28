@@ -58,4 +58,11 @@ Session销毁的三种方式
 | 过滤 | doFilter()  |
 | 销毁 | destroy()  |
 
+### 过滤器链
+当用户需要通过多个过滤器时，过滤器会按照web.xml中配置的顺序进行执行
+
+### 过滤器类别
+- Servlet2.5：Request（默认）、Forward、 Include、Error
+- Servlet3:   ASYNC
+
 

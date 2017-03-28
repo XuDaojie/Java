@@ -5,11 +5,17 @@
     version="3.1">
     <filter>
         <filter-name>mFilterFirst</filter-name>
-        <filter-class>com.xdj.javaee.filter.FilterFirst</filter-class>
+        <filter-class>com.xdj.javaee.filter.FirstFilter</filter-class>
     </filter>
 
     <filter-mapping>
         <filter-name>mFilterFirst</filter-name>
         <url-pattern>*.jsp</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
 </web-app>
