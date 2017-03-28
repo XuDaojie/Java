@@ -12,7 +12,11 @@
     <%
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     String time = sdf.format(session.getCreationTime());
-    String username = session.getAttribute("username").toString();
+    
+    String username = null;
+    if (session.getAttribute("username") != null) {
+        username = session.getAttribute("username").toString(); 
+    }
     %>
     Session创建时间:<%=time %> <br>
     SessionID:<%=session.getId() %> <br>
