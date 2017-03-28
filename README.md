@@ -31,3 +31,18 @@ Session销毁的三种方式
         ```
 3. 服务器重启
 
+## JSP指令与动作元素
+
+### Include指令与Include动作的区别
+
+
+|   | 指令 | 动作  |
+| --- | --- | --- |
+| 语法格式 | <small>`<%@ include file=“x.jsp” %>`</small> | <small>`<jsp:include page=“x.jsp” />`</small> |
+| 发生作用的时间  | 页面转换器 | 请求期 |
+| 包含的内容 | 转换后的代码 | 页面输出 |
+| 转换成的Servlet | 转换为同一个Servlet | 主页面和包含页面为两个Servlet |
+| 编译时间 | 较慢 | 较快 |
+| 执行时间 | 稍快 | 较慢  |
+
+
