@@ -1,4 +1,7 @@
-## 请求转发与请求重定向
+JavaEE
+===
+## JSP
+### 请求转发与请求重定向
 1. 请求重定向 客户端行为
     
     ``` java
@@ -13,8 +16,8 @@
         .forward(req, resp);
     ```
 
-## Session的生命周期
-### 销毁
+### Session的生命周期
+#### 销毁
 Session销毁的三种方式
 
 1. 调用session.invalidate()
@@ -44,5 +47,15 @@ Session销毁的三种方式
 | 转换成的Servlet | 转换为同一个Servlet | 主页面和包含页面为两个Servlet |
 | 编译时间 | 较慢 | 较快 |
 | 执行时间 | 稍快 | 较慢  |
+
+## 过滤器
+### 过滤器生命周期
+
+| 生命周期 |  |
+| --- | --- |
+| 实例化 | Web.xml |
+| 初始化 | init() |
+| 过滤 | doFilter()  |
+| 销毁 | destroy()  |
 
 
