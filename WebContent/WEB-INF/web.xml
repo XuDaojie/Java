@@ -14,6 +14,16 @@
     </filter-mapping>
 
     <servlet>
+        <servlet-name>StartUpServlet</servlet-name>
+        <servlet-class>com.xdj.javaee.servlet.StartUpServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StartUpServlet</servlet-name>
+        <url-pattern>/startupservlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.xdj.javaee.servlet.HelloServlet</servlet-class>
     </servlet>
@@ -21,6 +31,10 @@
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/helloservlet</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>com.xdj.javaee.listener.FirstListener</listener-class>
+    </listener>
 
     <error-page>
         <error-code>404</error-code>

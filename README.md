@@ -67,5 +67,12 @@ Session销毁的三种方式
 
 ## Servlet
 ### Tomcat容器等级
+todo
 
+### Servlet生命周期
+init() -> service() -> doGet/doPost
 
+容器启动时自动装载、接收到请求时装载
+
+## 监听器
+监听器先于过滤器执行
