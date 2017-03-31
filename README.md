@@ -85,6 +85,10 @@ Java Database Connectivity
 
 ## MySQL
 ### 终端进入mysql
+http://c.biancheng.net/cpp/html/1441.html
 ``` bash
 mysql -u root -p
 ```
+
+MySQL数据库无法远程访问
+http://www.cnblogs.com/beanmoon/p/3173924.html
