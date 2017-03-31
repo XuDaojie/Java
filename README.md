@@ -82,3 +82,9 @@ Java Database Connectivity
 
 ## Spring
 官方文档: http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/
+
+## MySQL
+### 终端进入mysql
+``` bash
+mysql -u root -p
+```
