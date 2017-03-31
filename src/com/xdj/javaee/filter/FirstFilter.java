@@ -1,6 +1,9 @@
 package com.xdj.javaee.filter;
 
+import com.xdj.javaee.db.DBUtils;
+
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -21,6 +24,14 @@ public class FirstFilter implements Filter {
         System.out.println("start doFilter");
         chain.doFilter(req, resp);
         System.out.println("end doFilter");
+
+        try {
+            DBUtils.m1();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void init(FilterConfig config) throws ServletException {
