@@ -10,13 +10,15 @@ import java.sql.Statement;
  * Created by xdj on 2017/4/1.
  */
 public class DBUtils {
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/testdb";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/testdb?useSSL=false";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "123456";
 
     public static void m1() throws ClassNotFoundException, SQLException {
         // 加载驱动
-        Class.forName("com.mysql.jdbc.Driver");
+//        Class.forName("com.mysql.jdbc.Driver");
+        // 新驱动
+        Class.forName("com.mysql.cj.jdbc.Driver");
         // 获得连接
         Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         // 通过数据库连接操作数据库
