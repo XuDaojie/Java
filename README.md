@@ -76,3 +76,9 @@ init() -> service() -> doGet/doPost
 
 ## 监听器
 监听器先于过滤器执行
+
+## JDBC
+Java Database Connectivity
+
+## Spring
+官方文档: http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/
