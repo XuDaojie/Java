@@ -1,6 +1,4 @@
-package com.xdj.javaee.listener; /**
- * Created by xdj on 2017/3/29.
- */
+package com.xdj.javaee.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -9,6 +7,9 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+/**
+ * Created by xdj on 2017/3/29.
+ */
 public class FirstListener implements ServletContextListener,
         HttpSessionListener, HttpSessionAttributeListener {
 
