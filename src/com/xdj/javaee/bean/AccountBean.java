@@ -6,6 +6,7 @@ package com.xdj.javaee.bean;
 public class AccountBean {
     private String mUsername;
     private String mPassword;
+    private String mCountry;
 
     public String getUsername() {
         return mUsername;
@@ -21,5 +22,13 @@ public class AccountBean {
 
     public void setPassword(String password) {
         mPassword = password;
+    }
+
+    public String getCountry() {
+        return mCountry;
+    }
+
+    public void setCountry(String country) {
+        mCountry = country;
     }
 }

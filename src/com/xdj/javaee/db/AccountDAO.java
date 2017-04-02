@@ -7,4 +7,6 @@ import com.xdj.javaee.bean.AccountBean;
  */
 public interface AccountDAO {
     AccountBean getAccount(String username);
+
+    boolean addAccount(AccountBean accountBean);
 }

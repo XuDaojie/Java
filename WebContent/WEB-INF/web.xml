@@ -54,6 +54,15 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>mRegister</servlet-name>
+        <servlet-class>com.xdj.javaee.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mRegister</servlet-name>
+        <url-pattern>/register.do</url-pattern>
+    </servlet-mapping>
+
     <listener>
         <listener-class>com.xdj.javaee.listener.FirstListener</listener-class>
     </listener>

@@ -2,6 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <import resource="dao-beans.xml"/>
+    <!-- Spring 默认作用域未singleton-->
+    <bean id="accountDAO" class="com.xdj.javaee.db.impl.AccountDAOImpl"/>
 </beans>

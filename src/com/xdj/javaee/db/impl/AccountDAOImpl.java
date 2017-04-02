@@ -2,7 +2,6 @@ package com.xdj.javaee.db.impl;
 
 import com.xdj.javaee.bean.AccountBean;
 import com.xdj.javaee.db.AccountDAO;
-import com.xdj.javaee.db.DBUtils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,11 +13,17 @@ import java.sql.Statement;
  */
 public class AccountDAOImpl implements AccountDAO {
 
+    private Connection mConnection;
+
+    public void setConnection(Connection connection) {
+        mConnection = connection;
+    }
+
     @Override
     public AccountBean getAccount(String username) {
-        Connection conn = DBUtils.getConnection();
+//        Connection conn = DBUtils.getConnection();
         try {
-            Statement statement = conn.createStatement();
+            Statement statement = mConnection.createStatement();
             String sql = String.format("select * from account where username = '%s'",
                     username);
             ResultSet resultSet = statement.executeQuery(sql);
@@ -32,5 +37,22 @@ public class AccountDAOImpl implements AccountDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public boolean addAccount(AccountBean accountBean) {
+//        Connection conn = DBUtils.getConnection();
+        try {
+            Statement statement = mConnection.createStatement();
+            String sql = String.format("INSERT INTO account(username, password) VALUES ('%s', '%s')",
+                    accountBean.getUsername(), accountBean.getPassword());
+            long size = statement.executeUpdate(sql);
+            if (size > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
