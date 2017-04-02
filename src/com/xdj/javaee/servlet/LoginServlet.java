@@ -1,0 +1,41 @@
+package com.xdj.javaee.servlet;
+
+import com.xdj.javaee.bean.AccountBean;
+import com.xdj.javaee.db.AccountDAO;
+import com.xdj.javaee.db.impl.AccountDAOImpl;
+import com.xdj.javaee.util.TextUtils;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Created by xdj on 2017/4/2.
+ */
+public class LoginServlet extends HttpServlet {
+    private AccountDAO mAccountDAO;
+
+    public LoginServlet() {
+        mAccountDAO = new AccountDAOImpl();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        AccountBean accountBean = mAccountDAO.getAccount(username);
+        if (accountBean != null &&
+                TextUtils.equals(username, accountBean.getUsername()) &&
+                TextUtils.equals(password, accountBean.getPassword())) {
+            response.getWriter().println("登录成功");
+        } else {
+            response.getWriter().println("用户名或密码错误");
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
+}

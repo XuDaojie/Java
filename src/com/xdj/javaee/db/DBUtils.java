@@ -14,7 +14,26 @@ public class DBUtils {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "123456";
 
-    public static void m1() throws ClassNotFoundException, SQLException {
+    private static Connection sConnection;
+
+    static {
+        try {
+            // 新驱动
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // 获得连接
+            sConnection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Connection getConnection() {
+        return sConnection;
+    }
+
+    public static void test() throws ClassNotFoundException, SQLException {
         // 加载驱动
 //        Class.forName("com.mysql.jdbc.Driver");
         // 新驱动

@@ -1,9 +1,6 @@
 package com.xdj.javaee.filter;
 
-import com.xdj.javaee.db.DBUtils;
-
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -21,17 +18,12 @@ public class FirstFilter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8"); // 控制浏览器行为
+        resp.setCharacterEncoding("UTF-8"); // 控制输出流格式(getWriter())
+
         System.out.println("start doFilter");
         chain.doFilter(req, resp);
         System.out.println("end doFilter");
-
-        try {
-            DBUtils.m1();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public void init(FilterConfig config) throws ServletException {

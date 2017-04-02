@@ -3,13 +3,26 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
     version="3.1">
+
+    <!-- 配置Spring start -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--contextConfigLocation在 ContextLoaderListener类中的默认值是 /WEB-INF/applicationContext.xml-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <!-- 配置Spring end -->
+
     <filter>
         <filter-name>mFilterFirst</filter-name>
         <filter-class>com.xdj.javaee.filter.FirstFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>mFilterFirst</filter-name>
-        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>*</url-pattern>
+        <!--<url-pattern>*.jsp</url-pattern>-->
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
 
@@ -30,6 +43,15 @@
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/helloservlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>mLogin</servlet-name>
+        <servlet-class>com.xdj.javaee.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mLogin</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <listener>

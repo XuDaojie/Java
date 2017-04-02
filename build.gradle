@@ -34,6 +34,7 @@ dependencies {
 
 //    compile 'mysql:mysql-connector-java:5.1.6'
     compile 'mysql:mysql-connector-java:6.0.6' // JDBC
+    compile 'org.springframework:spring-web:4.3.7.RELEASE'
     compile 'org.springframework:spring-context:4.3.7.RELEASE'
     testCompile 'org.springframework:spring-test:4.3.7.RELEASE'
 

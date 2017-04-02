@@ -83,6 +83,22 @@ Java Database Connectivity
 ## Spring
 官方文档: http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/
 
+在web.xml中配置web项目的spring，需要引入spring-web
+``` xml
+<!-- 配置Spring start -->
+<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<!--contextConfigLocation在 ContextLoaderListener类中的默认值是 /WEB-INF/applicationContext.xml-->
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
+</context-param>
+<!-- 配置Spring end -->
+```
+> 参考 
+> http://blog.csdn.net/mtfsoft/article/details/9164783
+
 ## MySQL
 ### 终端进入mysql
 http://c.biancheng.net/cpp/html/1441.html
