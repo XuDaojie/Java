@@ -3,6 +3,8 @@ package com.xdj.javaee.db.impl;
 import com.xdj.javaee.bean.AccountBean;
 import com.xdj.javaee.db.AccountDAO;
 
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,10 +15,16 @@ import java.sql.Statement;
  */
 public class AccountDAOImpl implements AccountDAO {
 
+    private DriverManagerDataSource mDataSource;
     private Connection mConnection;
 
-    public void setConnection(Connection connection) {
-        mConnection = connection;
+    public void setDataSource(DriverManagerDataSource dataSource) {
+        mDataSource = dataSource;
+        try {
+            mConnection = mDataSource.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
