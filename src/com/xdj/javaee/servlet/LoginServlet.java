@@ -2,8 +2,10 @@ package com.xdj.javaee.servlet;
 
 import com.xdj.javaee.bean.AccountBean;
 import com.xdj.javaee.db.AccountDAO;
-import com.xdj.javaee.db.impl.AccountDAOImpl;
 import com.xdj.javaee.util.TextUtils;
+
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.io.IOException;
 
@@ -18,8 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
     private AccountDAO mAccountDAO;
 
-    public LoginServlet() {
-        mAccountDAO = new AccountDAOImpl();
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+        mAccountDAO = (AccountDAO) context.getBean("accountDAO");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

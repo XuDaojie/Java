@@ -99,6 +99,14 @@ Java Database Connectivity
 > 参考 
 > http://blog.csdn.net/mtfsoft/article/details/9164783
 
+- 获取Bean
+
+``` java
+// getServletContext() 需要在init()方法执行后再调用
+WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+mAccountDAO = (AccountDAO) context.getBean("accountDAO");
+```
+
 ## MySQL
 ### 终端进入mysql
 http://c.biancheng.net/cpp/html/1441.html
