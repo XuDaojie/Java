@@ -11,7 +11,7 @@
     <title>登录</title>
 </head>
 <body>
-<form action="/mybatisLogin" method="post">
+<form action="mybatisLogin" method="post">
     <table>
         <tr>
             <td>登录</td>
