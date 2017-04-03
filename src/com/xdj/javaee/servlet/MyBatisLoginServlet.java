@@ -29,7 +29,12 @@ public class MyBatisLoginServlet extends HttpServlet {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        AccountBean accountBean = sqlSession.selectOne("findAccountByName", username);
+        AccountBean accountBean = null;
+        try {
+            accountBean = sqlSession.selectOne("findAccountByName", username);
+        } finally {
+            sqlSession.close();
+        }
 //        AccountBean accountBean = sqlSession.selectOne("findAccountById", 1);
         if (accountBean == null) {
             resp.getWriter().println("账号不存在");
