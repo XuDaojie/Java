@@ -1,7 +1,7 @@
-package com.xdj.javaee.db.impl;
+package com.xdj.javaee.dao.impl;
 
 import com.xdj.javaee.bean.AccountBean;
-import com.xdj.javaee.db.AccountDAO;
+import com.xdj.javaee.dao.AccountDAO;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 

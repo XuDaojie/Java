@@ -1,4 +1,4 @@
-package com.xdj.javaee.db;
+package com.xdj.javaee.dao;
 
 import com.xdj.javaee.bean.AccountBean;
 

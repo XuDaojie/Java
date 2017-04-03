@@ -63,6 +63,15 @@
         <url-pattern>/register.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>mMybatisLogin</servlet-name>
+        <servlet-class>com.xdj.javaee.servlet.MyBatisLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mMybatisLogin</servlet-name>
+        <url-pattern>/mybatisLogin</url-pattern>
+    </servlet-mapping>
+
     <listener>
         <listener-class>com.xdj.javaee.listener.FirstListener</listener-class>
     </listener>

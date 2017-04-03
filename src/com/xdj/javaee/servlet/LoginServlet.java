@@ -1,7 +1,7 @@
 package com.xdj.javaee.servlet;
 
 import com.xdj.javaee.bean.AccountBean;
-import com.xdj.javaee.db.AccountDAO;
+import com.xdj.javaee.dao.AccountDAO;
 import com.xdj.javaee.util.TextUtils;
 
 import java.io.IOException;

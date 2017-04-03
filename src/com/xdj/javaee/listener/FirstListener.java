@@ -23,7 +23,7 @@ public class FirstListener implements ServletContextListener,
     public void contextInitialized(ServletContextEvent sce) {
       /* This method is called when the servlet context is
          initialized(when the Web application is deployed). 
-         You can initialize servlet context related data here.
+         You can initialize servlet context related bean here.
       */
       System.out.println("contextInitialized");
     }

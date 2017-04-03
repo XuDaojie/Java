@@ -1,4 +1,4 @@
-package com.xdj.javaee.db;
+package com.xdj.javaee.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

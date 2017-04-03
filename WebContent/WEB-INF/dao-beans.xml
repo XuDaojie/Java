@@ -9,7 +9,7 @@
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
     </bean>
-    <bean id="accountDAO" class="com.xdj.javaee.db.impl.AccountDAOImpl">
+    <bean id="accountDAO" class="com.xdj.javaee.dao.impl.AccountDAOImpl">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans>
