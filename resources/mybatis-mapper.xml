@@ -9,4 +9,7 @@
     <select id="findAccountByName" resultType="com.xdj.javaee.bean.AccountBean">
         select * from account where username = #{username}
     </select>
+    <insert id="insertAccount">
+        insert into account(username, password) values (#{username}, #{password})
+    </insert>
 </mapper>
