@@ -41,5 +41,6 @@ dependencies {
     compile 'org.springframework:spring-jdbc:4.3.7.RELEASE'
     testCompile 'org.springframework:spring-test:4.3.7.RELEASE'
     compile 'org.mybatis:mybatis:3.4.2'
+    compile 'log4j:log4j:1.2.17'
 
 }

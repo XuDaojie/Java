@@ -107,6 +107,9 @@ WebApplicationContext context = WebApplicationContextUtils.getWebApplicationCont
 mAccountDAO = (AccountDAO) context.getBean("accountDAO");
 ```
 
+## Log4j
+初始化时默认读取resource中log4j.properties文件
+
 ## MySQL
 ### 终端进入mysql
 http://c.biancheng.net/cpp/html/1441.html
