@@ -30,5 +30,7 @@
 <br>
 Hello <%=s %><br>
 x+y=<%=sum(1, 3) %>
+
+<p>Get your greeting <a href="springMVC/greeting">here</a></p>
 </body>
 </html>
