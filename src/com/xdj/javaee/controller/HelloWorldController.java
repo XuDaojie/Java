@@ -3,6 +3,7 @@ package com.xdj.javaee.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by xdj on 2017/4/3.
@@ -19,8 +20,9 @@ public class HelloWorldController {
 //    }
 
     @RequestMapping("springMVC/greeting")
-    public String greeting(Model model) {
-        model.addAttribute("name", "Spring MVC");
+    public String greeting(@RequestParam(value = "name", defaultValue = "Spring MVC") String name,
+                           Model model) {
+        model.addAttribute("name", name);
         return "greeting"; // 视图的地址
     }
 }
