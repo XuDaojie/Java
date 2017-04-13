@@ -1,6 +1,6 @@
 ////group 'MyJavaEE'
 ////version '1.0-SNAPSHOT'
-//
+
 apply plugin: 'java'
 apply plugin: 'war'
 //apply plugin: 'idea'
@@ -8,9 +8,9 @@ apply plugin: 'war'
 
 sourceCompatibility = 1.8
 
-//repositories {
-//    mavenCentral()
-//}
+repositories {
+    mavenCentral()
+}
 
 sourceSets {
     main {
@@ -43,5 +43,4 @@ dependencies {
     testCompile 'org.springframework:spring-test:4.3.7.RELEASE'
     compile 'org.mybatis:mybatis:3.4.2'
     compile 'log4j:log4j:1.2.17'
-
 }
