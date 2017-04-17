@@ -16,36 +16,32 @@ import java.io.InputStream;
  */
 public class MyBatisAccountDAOImpl implements AccountDAO {
 
-    @Override
-    public AccountBean getAccount(String username) {
+    private static SqlSessionFactory sSqlSessionFactory = null;
+
+    static {
         String resource = "mybatis-config.xml";
         try {
             InputStream inputStream = Resources.getResourceAsStream(resource);
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-            SqlSession sqlSession = sqlSessionFactory.openSession();
-            AccountBean accountBean = sqlSession.selectOne("findAccountByName", username);
-            sqlSession.close();
-            return accountBean;
+            sSqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+    }
+
+    @Override
+    public AccountBean getAccount(String username) {
+        SqlSession sqlSession = sSqlSessionFactory.openSession();
+        AccountBean accountBean = sqlSession.selectOne("findAccountByName", username);
+        sqlSession.close();
+        return accountBean;
     }
 
     @Override
     public boolean addAccount(AccountBean accountBean) {
-        String resource = "mybatis-config.xml";
-        try {
-            InputStream inputStream = Resources.getResourceAsStream(resource);
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-            SqlSession sqlSession = sqlSessionFactory.openSession();
-            sqlSession.insert("insertAccount", accountBean);
-            sqlSession.commit();
-            sqlSession.close();
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        SqlSession sqlSession = sSqlSessionFactory.openSession();
+        sqlSession.insert("insertAccount", accountBean);
+        sqlSession.commit();
+        sqlSession.close();
         return false;
     }
 }

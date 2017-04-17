@@ -26,10 +26,10 @@ sourceSets {
 }
 
 war {
-    webAppDirName = 'WebContent'
-//    from 'WebContent' // web resources directories
+//    webAppDirName = 'WebContent'
+    from 'WebContent' // web resources directories
 //    webInf { from 'WebContent' } // adds a file-set to the WEB-INF dir.
-//    webXml = file('WebContent/WEB-INF/web.xml') // copies a file to WEB-INF/web.xml
+    webXml = file('WebContent/WEB-INF/web.xml') // copies a file to WEB-INF/web.xml
 }
 
 dependencies {
