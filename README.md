@@ -119,3 +119,17 @@ mysql -u root -p
 
 MySQL数据库无法远程访问
 http://www.cnblogs.com/beanmoon/p/3173924.html
+
+## JavaScript
+返回上一页
+```javascript
+history.go(-1); // -2, -3
+```
+重定向
+http://stackoverflow.com/questions/503093/how-to-redirect-to-another-webpage-in-javascript-jquery
+```javascript
+// 1
+window.location.href="http://google.com";
+// 2
+window.location.replace("http://google.com");
+```
