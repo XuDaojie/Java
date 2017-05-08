@@ -133,3 +133,8 @@ window.location.href="http://google.com";
 // 2
 window.location.replace("http://google.com");
 ```
+
+Ajax返回的字符串乱码
+是由于StringHttpMessageConverter默认字符集为ISO-8859-1 造成的
+https://www.oschina.net/question/105887_114629
+http://wxynxyo.iteye.com/blog/2000327
