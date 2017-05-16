@@ -1,50 +1,21 @@
-////group 'MyJavaEE'
-////version '1.0-SNAPSHOT'
+group 'MyJava'
+version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-apply plugin: 'war'
-//apply plugin: 'idea'
-//apply plugin: 'eclipse'
-apply plugin: 'org.akhikhl.gretty'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-    jcenter()
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        // gretty支持热部署、HTTPS、转发、调试、自动化运行环境等诸多特性
+        classpath 'org.akhikhl.gretty:gretty:1.4.2'
+    }
 }
 
-//sourceSets {
-//    main {
-//        java {
-//            srcDirs = ['.', 'src']
-//        }
-//        resources {
-//            srcDirs = ['resources']
-//        }
-//    }
-//}
-//
-//war {
-////    webAppDirName = 'WebContent'
-//    from 'WebContent' // web resources directories
-////    webInf { from 'WebContent' } // adds a file-set to the WEB-INF dir.
-//    webXml = file('WebContent/WEB-INF/web.xml') // copies a file to WEB-INF/web.xml
-//}
+allprojects {
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    providedCompile 'javax:javaee-api:7.0'
-
-//    compile 'mysql:mysql-connector-java:5.1.6'
-    compile 'mysql:mysql-connector-java:6.0.6' // JDBC
-    compile 'org.springframework:spring-context:4.3.7.RELEASE'
-    compile 'org.springframework:spring-jdbc:4.3.7.RELEASE'
-    compile 'org.springframework:spring-web:4.3.7.RELEASE'
-    compile 'org.springframework:spring-webmvc:4.3.7.RELEASE'
-    testCompile 'org.springframework:spring-test:4.3.7.RELEASE'
-    compile 'org.mybatis:mybatis:3.4.2'
-    compile 'redis.clients:jedis:2.9.0'
-    compile 'log4j:log4j:1.2.17'
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 }

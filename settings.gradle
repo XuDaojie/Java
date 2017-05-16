@@ -1,0 +1,5 @@
+rootProject.name = 'MyJava'
+
+include ':app'
+//include 'javase'
+
