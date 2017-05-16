@@ -187,5 +187,7 @@ hs_err_pid*
 
 # Custom
 .idea
+.gradle
 /build/
 */build/
+!gradle/wrapper/*
