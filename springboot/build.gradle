@@ -8,6 +8,7 @@ sourceCompatibility = 1.8
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-    compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+//    compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    compile 'com.rabbitmq:amqp-client:4.1.0'
 }
