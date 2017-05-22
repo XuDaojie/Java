@@ -17,7 +17,9 @@ public class TopicSend {
             "lazy.brown.fox",
             "quick.brown.fox",
             "quick.orange.male.rabbit",
-            "lazy.orange.male.rabbit"};
+            "lazy.orange.male.rabbit",
+            "",
+            ".."};
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
