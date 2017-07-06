@@ -11,4 +11,5 @@ dependencies {
 //    compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     compile 'com.rabbitmq:amqp-client:4.1.0'
+    compile 'org.springframework.amqp:spring-rabbit:1.7.2.RELEASE'
 }
