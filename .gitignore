@@ -188,8 +188,6 @@ hs_err_pid*
 # Custom
 .idea
 .gradle
-/build/
-*/build/
+build/
 !gradle/wrapper/*
-
 *.iml
