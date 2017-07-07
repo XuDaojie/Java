@@ -11,5 +11,5 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'com.rabbitmq:amqp-client:4.1.0'
+    compile "com.rabbitmq:amqp-client:$rabbitMQVersion"
 }
