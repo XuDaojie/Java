@@ -14,39 +14,39 @@
         </property>
     </bean>
     <bean id="connectionFactory"
-        class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        class="org.springframework.activemq.amqp.rabbit.connection.CachingConnectionFactory">
         <constructor-arg value="localhost"/>
         <property name="host" value="${rmq.ip}"/>
         <property name="port" value="${rmq.prot}"/>
         <property name="username" value="${rmq.manager.user}"/>
         <property name="password" value="${rmq.manager.password}"/>
     </bean>
-    <bean id="rabbitAdmin" class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+    <bean id="rabbitAdmin" class="org.springframework.activemq.amqp.rabbit.core.RabbitAdmin">
         <constructor-arg ref="connectionFactory"/>
     </bean>
-    <bean id="rabbitTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+    <bean id="rabbitTemplate" class="org.springframework.activemq.amqp.rabbit.core.RabbitTemplate">
         <constructor-arg ref="connectionFactory"/>
     </bean>
 
     <!-- 创建消息转换器为SimpleMessageConverter -->
     <!--<bean id="serializerMessageConverter"-->
-        <!--class="org.springframework.amqp.support.converter.SimpleMessageConverter"/>-->
+        <!--class="org.springframework.activemq.amqp.support.converter.SimpleMessageConverter"/>-->
     <!-- 设置可持久化的队列 -->
-    <bean id="queue" class="org.springframework.amqp.core.Queue">
+    <bean id="queue" class="org.springframework.activemq.amqp.core.Queue">
         <constructor-arg name="name" value="testQueue"/>
         <constructor-arg name="durable" value="true"/>
         <constructor-arg name="exclusive" value="false"/>
         <constructor-arg name="autoDelete" value="false"/>
     </bean>
     <!-- 创建交换器，并持久化-->
-    <bean id="topicExchange" class="org.springframework.amqp.core.TopicExchange">
+    <bean id="topicExchange" class="org.springframework.activemq.amqp.core.TopicExchange">
         <constructor-arg name="name" value="testExchange"/>
         <constructor-arg name="durable" value="true"/>
         <constructor-arg name="autoDelete" value="false"/>
     </bean>
     <!-- 绑定交换器、队列 -->
     <util:map id="arguments"/>
-    <bean id="binding" class="org.springframework.amqp.core.Binding">
+    <bean id="binding" class="org.springframework.activemq.amqp.core.Binding">
         <constructor-arg index="0" value="testQueue"/>
         <constructor-arg index="1" value="QUEUE"/>
         <constructor-arg index="2" value="testExchange"/>
@@ -55,7 +55,7 @@
     </bean>
     <bean id="rabbitConsumer" class="com.xdj.javaee.service.RabbitConsumer"/>
     <bean id="messageListenerAdapter"
-        class="org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter">
+        class="org.springframework.activemq.amqp.rabbit.listener.adapter.MessageListenerAdapter">
         <constructor-arg ref="rabbitConsumer"/>
         <property name="defaultListenerMethod" value="consumer"/>
         <!--<property name="messageConverter" ref="serializerMessageConverter"/>-->

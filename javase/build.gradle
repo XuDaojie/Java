@@ -9,5 +9,5 @@ sourceCompatibility = 1.8
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile "com.rabbitmq:amqp-client:$rabbitMQVersion"
+    compile "com.rabbitmq:activemq.amqp-client:$rabbitMQVersion"
 }
