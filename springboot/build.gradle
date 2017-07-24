@@ -19,6 +19,6 @@ dependencies {
 //    compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 
-    compile "org.springframework.activemq.amqp:spring-rabbit:$springRabbitVersion"
-//    compile 'com.rabbitmq:activemq.amqp-client:4.1.0'
+//    compile "org.springframework.activemq.amqp:spring-rabbit:$springRabbitVersion"
+    compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '1.7.3.RELEASE'
 }
