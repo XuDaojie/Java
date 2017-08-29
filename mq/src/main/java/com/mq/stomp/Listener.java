@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package activemq.stomp;
+package com.mq.stomp;
 
 import org.fusesource.stomp.jms.*;
 import javax.jms.*;
@@ -28,7 +28,8 @@ class Listener {
         String host = env("ACTIVEMQ_HOST", "localhost");
         int port = Integer.parseInt(env("ACTIVEMQ_PORT", "61613"));
 //        String destination = arg(args, 0, "/topic/event");
-        String destination = arg(args, 0, "/topic/event");
+//        String destination = arg(args, 0, "/topic/event");
+        String destination = arg(args, 0, "/queue/e");
 
         StompJmsConnectionFactory factory = new StompJmsConnectionFactory();
         factory.setBrokerURI("tcp://" + host + ":" + port);

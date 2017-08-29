@@ -1,4 +1,4 @@
-package activemq.stomp;
+package com.mq.stomp;
 
 import org.fusesource.stomp.jms.StompJmsConnectionFactory;
 import org.fusesource.stomp.jms.StompJmsDestination;
@@ -19,8 +19,9 @@ public class Comsumer {
         connection.start();
 
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Destination des = new StompJmsDestination("stompQueue");
-        MessageConsumer consumer = session.createConsumer(des);
+        Destination des = new StompJmsDestination("/queue/x");
+//        MessageConsumer consumer = session.createConsumer(des);
+        MessageConsumer consumer = session.createConsumer(des, "id = 1");
 
         System.out.println("wait listening...");
 

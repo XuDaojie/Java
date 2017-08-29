@@ -1,4 +1,4 @@
-package activemq.stomp;
+package com.mq.stomp;
 
 import org.fusesource.stomp.jms.StompJmsConnectionFactory;
 import org.fusesource.stomp.jms.StompJmsDestination;
@@ -18,16 +18,23 @@ public class Producter {
         Connection connection = factory.createConnection("admin", "password");
         connection.start();
 
-        Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
-        Destination des = new StompJmsDestination("stompQueue");
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        Destination des = new StompJmsDestination("/queue/x");
         MessageProducer producer = session.createProducer(des);
         producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 
-        TextMessage msg = session.createTextMessage("body");
-        msg.setIntProperty("id", 10);
-        producer.send(msg);
+        for (int i = 0; i < 1000; i++) {
+            TextMessage msg = session.createTextMessage("body" + i);
+            msg.setIntProperty("id", 1);
+            if (i % 5 == 0) {
+                producer.send(msg, DeliveryMode.NON_PERSISTENT, 9, 3000);
+            } else {
+                producer.send(msg);
+            }
 
-        producer.send(session.createTextMessage("SHUTDOWN"));
+        }
+        System.out.println("send 1000 message");
+//        producer.send(session.createTextMessage("SHUTDOWN"));
 
         connection.close();
     }
