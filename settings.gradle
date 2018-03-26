@@ -2,4 +2,5 @@ rootProject.name = 'MyJava'
 
 include ':app'
 include ':javase'
+include ':mq'
 include ':springboot'
