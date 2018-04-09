@@ -53,7 +53,7 @@
         <constructor-arg index="3" value="testQueue"/>
         <constructor-arg index="4" value="#{arguments}"/>
     </bean>
-    <bean id="rabbitConsumer" class="com.xdj.javaee.service.RabbitConsumer"/>
+    <bean id="rabbitConsumer" class="io.github.xudaojie.javaee.service.RabbitConsumer"/>
     <bean id="messageListenerAdapter"
         class="org.springframework.activemq.amqp.rabbit.listener.adapter.MessageListenerAdapter">
         <constructor-arg ref="rabbitConsumer"/>

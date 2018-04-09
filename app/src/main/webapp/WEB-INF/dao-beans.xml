@@ -9,8 +9,8 @@
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
     </bean>
-    <bean id="accountDAO" class="com.xdj.javaee.dao.impl.AccountDAOImpl">
+    <bean id="accountDAO" class="io.github.xudaojie.javaee.dao.impl.AccountDAOImpl">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    <bean id="myBatisAccountDAO" class="com.xdj.javaee.dao.impl.MyBatisAccountDAOImpl"/>
+    <bean id="myBatisAccountDAO" class="io.github.xudaojie.javaee.dao.impl.MyBatisAccountDAOImpl"/>
 </beans>
