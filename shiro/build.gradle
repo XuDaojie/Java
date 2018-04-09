@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+//    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    // Spring Boot start
+//    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}", {
+//        exclude "group": "com.fasterxml.jackson.core"
+//    }
+    // Spring Boot end
+    compile "org.slf4j:slf4j-simple:1.6.1"
+    compile "commons-logging:commons-logging:1.1.3"
+    compile 'org.apache.shiro:shiro-core:1.4.0'
+}

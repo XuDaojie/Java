@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springVersion = '4.3.9.RELEASE'
-        springBootVersion = '1.5.4.RELEASE'
+        springBootVersion = '1.5.9.RELEASE'
         rabbitMQVersion = '4.0.2'
         springRabbitVersion = '1.7.3.RELEASE'
         sl4jVersion = '1.7.21'

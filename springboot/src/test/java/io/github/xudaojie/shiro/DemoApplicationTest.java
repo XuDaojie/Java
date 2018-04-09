@@ -1,4 +1,4 @@
-package io.github.xudaojie.springboot;
+package io.github.xudaojie.shiro;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

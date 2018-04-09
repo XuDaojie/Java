@@ -1,4 +1,4 @@
-package io.github.xudaojie.springboot;
+package io.github.xudaojie.shiro;
 
 /**
  * Created by xdj on 2017/5/18.
