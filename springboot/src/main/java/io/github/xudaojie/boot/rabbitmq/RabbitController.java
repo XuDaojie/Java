@@ -1,4 +1,4 @@
-package io.github.xudaojie.shiro.rabbitmq;
+package io.github.xudaojie.boot.rabbitmq;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

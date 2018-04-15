@@ -1,4 +1,4 @@
-package io.github.xudaojie.shiro;
+package io.github.xudaojie.boot;
 
 /**
  * Created by xdj on 2017/5/18.

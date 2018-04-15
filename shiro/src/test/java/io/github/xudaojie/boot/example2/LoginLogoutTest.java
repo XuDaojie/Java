@@ -1,4 +1,4 @@
-package io.github.xudaojie.shiro.example2;
+package io.github.xudaojie.boot.example2;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
