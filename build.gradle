@@ -17,6 +17,7 @@ buildscript {
         // gretty支持热部署、HTTPS、转发、调试、自动化运行环境等诸多特性
         classpath 'org.akhikhl.gretty:gretty:1.4.2'
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
     }
 }
 
@@ -25,4 +26,20 @@ allprojects {
         mavenCentral()
         jcenter()
     }
+
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    apply plugin: "io.spring.dependency-management"
+
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Edgware.SR3'
+        }
+    }
+
+    dependencies {
+//        compile 'org.springframework.cloud:spring-cloud-starter-config'
+//        compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    }
 }
+

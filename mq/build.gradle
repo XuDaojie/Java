@@ -15,4 +15,6 @@ dependencies {
 //    compile 'org.apache.qpid:qpid-client:0.24' // 依赖slf4j // AMQP
 //    compile 'org.apache.qpid:qpid-client:0.9.0' // 依赖slf4j // AMQP
     compile 'org.apache.activemq:activemq-all:5.15.0'
+
+    compile 'org.apache.kafka:kafka-clients:1.0.0'
 }
