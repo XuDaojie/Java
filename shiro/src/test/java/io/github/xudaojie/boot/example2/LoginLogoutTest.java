@@ -15,17 +15,20 @@ import org.junit.Test;
 
 public class LoginLogoutTest {
 
+    /**
+     * 登录
+     */
     @Test
     public void testHelloWorld() {
         //1.或SecurityManager工厂，初始化ini文件
-        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
+        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:example2/shiro.ini");
         SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
 
         Subject currentUser = SecurityUtils.getSubject();
 
         if (!currentUser.isAuthenticated()) {
-            UsernamePasswordToken token = new UsernamePasswordToken("guest", "guest");
+            UsernamePasswordToken token = new UsernamePasswordToken("darkhelmet", "ludicrousspeed");
             token.setRememberMe(true);
             try {
                 currentUser.login(token);
