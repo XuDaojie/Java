@@ -64,6 +64,9 @@ public class LoginLogoutTest {
         if (!currentUser.isAuthenticated()) {
             UsernamePasswordToken token = new UsernamePasswordToken("!guest", "guest");
             token.setRememberMe(true);
+            token.getPrincipal();
+            token.getCredentials();
+            currentUser.checkPermission();
             try {
                 currentUser.login(token);
                 //if no exception, that's it, we're done!

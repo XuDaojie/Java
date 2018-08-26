@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+//apply plugin: 'spring-boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+dependencies {
+    // Spring Boot start
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}", {
+        exclude "group": "com.fasterxml.jackson.core"
+        exclude "group": "org.slf4j"
+    }
+    compile "org.slf4j:jcl-over-slf4j:$sl4jVersion"
+    compile "org.slf4j:jul-to-slf4j:$sl4jVersion"
+    compile "org.slf4j:log4j-over-slf4j:$sl4jVersion"
+    // Spring Boot end
+//    compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+
+    // tag::Shiro
+    compile 'org.apache.shiro:shiro-web:1.4.0'
+    // end::Shiro
+}

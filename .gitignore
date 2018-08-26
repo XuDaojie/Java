@@ -191,3 +191,4 @@ hs_err_pid*
 build/
 !gradle/wrapper/*
 *.iml
+*/out
