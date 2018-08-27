@@ -1,0 +1,6 @@
+dependencies {
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    runtime "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile "org.springframework.cloud:spring-cloud-starter-eureka"
+}
