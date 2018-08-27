@@ -9,4 +9,7 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-zuul"
     compile "org.springframework.cloud:spring-cloud-starter-zipkin"
     // end::Spring Cloud
+
+    // tag::自定义负载均衡，用户实现灰度发布
+    compile 'io.jmnarloch:ribbon-discovery-filter-spring-cloud-starter:2.1.0'
 }
