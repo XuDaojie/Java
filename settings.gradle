@@ -5,11 +5,11 @@ include ':javase'
 include ':mq'
 include ':shiro'
 
+include ':news-user-demo'
+
 include ':springboot'
 include ':springboot-cache'
 include ':springboot-shiro'
 include ':springcloud-zuul'
 include ':springcloud-eureka'
 include ':springcloud-service-demo'
-include ':news-user-demo'
-include ':gateway'
