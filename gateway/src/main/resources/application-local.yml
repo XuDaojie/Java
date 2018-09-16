@@ -37,8 +37,8 @@ eureka:
     prefer-ip-address: true # 将IP注册到 Eureka
   client:
     serviceUrl:
-#      defaultZone: http://192.168.115.103:8761/eureka/
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://192.168.115.99:9761/eureka/
+#      defaultZone: http://127.0.0.1:8761/eureka/
 endpoints:
   actuator:
     sensitive: false

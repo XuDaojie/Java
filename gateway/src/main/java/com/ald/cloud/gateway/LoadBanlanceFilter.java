@@ -3,6 +3,7 @@ package com.ald.cloud.gateway;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,11 +37,24 @@ public class LoadBanlanceFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 
-        String zone = request.getHeader("x-zone");
+        Object serviceIdObj = ctx.get("serviceId");
+        String serviceId = null;
+        if (serviceIdObj != null) {
+            serviceId = serviceIdObj.toString();
+        }
 
-        RibbonFilterContextHolder.getCurrentContext()
-                .add("zone", zone);
-
+        if (StringUtils.equals("news-user", serviceId)) {
+            String zone = request.getHeader("x-zone");
+            if (!StringUtils.isBlank(zone)
+//                    && StringUtils.equals(zone, "zone1")
+            ) {
+                RibbonFilterContextHolder.getCurrentContext()
+                        .add("zone", zone);
+            } else {
+                RibbonFilterContextHolder.getCurrentContext()
+                        .add("zone", "zone");
+            }
+        }
         return null;
     }
 }
