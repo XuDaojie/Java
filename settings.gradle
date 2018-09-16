@@ -2,9 +2,11 @@ rootProject.name = 'Java'
 
 include ':app'
 include ':javase'
-include ':springboot'
 include ':mq'
 include ':shiro'
+
+include ':springboot'
+include ':springboot-cache'
 include ':springboot-shiro'
 include ':springcloud-zuul'
 include ':springcloud-eureka'

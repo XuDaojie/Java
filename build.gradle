@@ -8,6 +8,7 @@ buildscript {
         rabbitMQVersion = '4.0.2'
         springRabbitVersion = '1.7.3.RELEASE'
         sl4jVersion = '1.7.21'
+        guavaVersion = '18.0'
     }
     repositories {
         mavenCentral()
