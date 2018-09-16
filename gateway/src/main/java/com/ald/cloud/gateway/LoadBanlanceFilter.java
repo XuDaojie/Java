@@ -46,9 +46,10 @@ public class LoadBanlanceFilter extends ZuulFilter {
         if (StringUtils.equals("news-user", serviceId)) {
             String zone = request.getHeader("x-zone");
             if (!StringUtils.isBlank(zone)
-                    && StringUtils.equals(zone, "zone1")) {
+//                    && StringUtils.equals(zone, "zone1")
+            ) {
                 RibbonFilterContextHolder.getCurrentContext()
-                        .add("zone", "zone1");
+                        .add("zone", zone);
             } else {
                 RibbonFilterContextHolder.getCurrentContext()
                         .add("zone", "zone");
