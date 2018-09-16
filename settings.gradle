@@ -1,4 +1,4 @@
-rootProject.name = 'MyJava'
+rootProject.name = 'Java'
 
 include ':app'
 include ':javase'
