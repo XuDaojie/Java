@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springVersion = '4.3.9.RELEASE'
-        springBootVersion = '1.5.6.RELEASE'
+        springBootVersion = '1.5.10.RELEASE'
         rabbitMQVersion = '4.0.2'
         springRabbitVersion = '1.7.3.RELEASE'
         sl4jVersion = '1.7.21'
@@ -24,23 +24,14 @@ buildscript {
 subprojects {
 
     apply plugin: 'java'
-    apply plugin: 'eclipse'
     apply plugin: 'idea'
-    apply plugin: 'spring-boot'
-//    apply plugin: 'org.springframework.boot'
+    apply plugin: 'org.springframework.boot'
     apply plugin: "io.spring.dependency-management"
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
-    }
-
-    eclipse {
-        classpath {
-            downloadJavadoc = false
-            downloadSources = false
-        }
     }
 
     idea {
@@ -51,11 +42,7 @@ subprojects {
     }
 
     repositories {
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-        maven { url "http://repo2.maven.org/maven2" }
-        maven { url "http://repo.maven.apache.org/maven2" }
-        // Hbase jar包仓库
-        maven { url "https://repository.cloudera.com/artifactory/cloudera-repos"}
+//        maven { url "https://maven.aliyun.com/repository/public" }
         jcenter()
         mavenCentral()
     }
