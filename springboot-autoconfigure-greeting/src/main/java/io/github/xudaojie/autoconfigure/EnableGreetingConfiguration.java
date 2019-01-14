@@ -6,6 +6,7 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -17,5 +18,6 @@ import org.springframework.context.annotation.Import;
 @Inherited
 @Documented
 @Import(GreetingConfiguration.class)
+@EnableConfigurationProperties(GreetingProperties.class)
 public @interface EnableGreetingConfiguration {
 }

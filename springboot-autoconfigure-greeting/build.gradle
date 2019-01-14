@@ -18,3 +18,5 @@ dependencies {
 
     compile project(":greeting")
 }
+
+compileJava.dependsOn(processResources)

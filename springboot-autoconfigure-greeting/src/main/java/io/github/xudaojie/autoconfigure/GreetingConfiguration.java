@@ -15,8 +15,17 @@ import org.springframework.context.annotation.Configuration;
 public class GreetingConfiguration {
 
     @Bean
-    @ConditionalOnMissingBean
-    public Greeting greeting() {
-        return new Greeting();
+    @ConditionalOnMissingBean(GreetingProperties.class)
+    public GreetingProperties greetingProperties() {
+        return new GreetingProperties();
     }
+
+    @Bean
+    @ConditionalOnMissingBean(Greeting.class)
+    public Greeting greeting(GreetingProperties greetingProperties) {
+        Greeting greeting = new Greeting();
+        greeting.setValue(greetingProperties.getValue());
+        return greeting;
+    }
+
 }
