@@ -21,4 +21,6 @@ dependencies {
 
 //    compile "org.springframework.activemq.amqp:spring-rabbit:$springRabbitVersion"
     compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '1.7.3.RELEASE'
+
+    compile project(":springboot-starter-greeting")
 }

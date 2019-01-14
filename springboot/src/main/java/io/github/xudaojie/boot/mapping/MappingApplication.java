@@ -27,10 +27,10 @@ public class MappingApplication extends WebMvcConfigurerAdapter {
         configurer.setUrlPathHelper(urlPathHelper);
     }
 
-    @RequestMapping({"/", "greeting"})
-    public String home() {
-        return "Hello World!";
-    }
+//    @RequestMapping({"/", "greeting"})
+//    public String home() {
+//        return "Hello World!";
+//    }
 
     /**
      *
