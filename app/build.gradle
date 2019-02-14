@@ -1,13 +1,6 @@
-////group 'MyJavaEE'
-////version '1.0-SNAPSHOT'
-
 apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'eclipse'
 apply plugin: 'idea'
-//apply plugin: 'idea'
-//apply plugin: 'eclipse'
-//apply plugin: 'org.akhikhl.gretty'
 
 sourceCompatibility = 1.8
 

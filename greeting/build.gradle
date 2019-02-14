@@ -1,7 +1,3 @@
-plugins {
-    id 'java'
-}
-
 group 'MyJava'
 version '1.0-SNAPSHOT'
 
