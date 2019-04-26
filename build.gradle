@@ -36,13 +36,13 @@ subprojects {
 
     idea {
         module {
-            downloadJavadoc = false
-            downloadSources = false
+            downloadJavadoc = true
+            downloadSources = true
         }
     }
 
     repositories {
-//        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/public" }
         jcenter()
         mavenCentral()
     }
