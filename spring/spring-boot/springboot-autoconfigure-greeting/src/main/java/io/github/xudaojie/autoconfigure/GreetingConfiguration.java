@@ -1,6 +1,6 @@
 package io.github.xudaojie.autoconfigure;
 
-import io.github.xudaojie.emptyjar.Greeting;
+import io.github.xudaojie.proxy.Greeting;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;

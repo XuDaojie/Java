@@ -1,7 +1,10 @@
 rootProject.name = 'Java'
 
 include ':javase'
+include ':javase:proxy'
 include ':javaee'
-include ':spring-boot'
-include ':spring-cloud'
+
+include ':spring'
+include ':spring:spring-boot'
+include ':spring:spring-cloud'
 

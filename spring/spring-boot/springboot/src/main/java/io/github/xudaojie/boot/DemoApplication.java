@@ -2,7 +2,7 @@ package io.github.xudaojie.boot;
 
 import io.github.xudaojie.autoconfigure.EnableGreetingConfiguration;
 import io.github.xudaojie.boot.bean.TestBean;
-import io.github.xudaojie.emptyjar.Greeting;
+import io.github.xudaojie.proxy.Greeting;
 import javax.annotation.Resource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package io.github.xudaojie.emptyjar;
+package io.github.xudaojie.proxy;
 
 /**
  * @author xdj
