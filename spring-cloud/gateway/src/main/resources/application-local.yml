@@ -1,0 +1,46 @@
+logging:
+  level:
+    root: info
+
+server:
+  port: 9763
+  tomcat:
+    max-threads: 2000
+
+spring:
+  application:
+    name: api-gateway
+  zipkin:
+    base-url: http://ZIPKIN-SERVER/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      percentage: 1
+
+zuul:
+  prefix: /api
+  sensitiveHeaders:
+  routes:
+    user:
+      path: /user/**
+      serviceId: news-user
+      stripPrefix: false # 表示转发时附带前缀
+
+    demo:
+      path: /demo/**
+      serviceId: service-demo
+      stripPrefix: false # 表示转发时附带前缀
+
+eureka:
+  instance:
+    prefer-ip-address: true # 将IP注册到 Eureka
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.115.99:9761/eureka/
+#      defaultZone: http://127.0.0.1:8761/eureka/
+endpoints:
+  actuator:
+    sensitive: false
+  info:
+    sensitive: false
