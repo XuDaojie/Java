@@ -8,6 +8,8 @@ buildscript {
         rabbitMQVersion = '4.0.2'
         springRabbitVersion = '1.7.3.RELEASE'
         sl4jVersion = '1.7.21'
+        mybatisVersion = '3.5.4'
+        mysqlVersion = '8.0.19'
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
