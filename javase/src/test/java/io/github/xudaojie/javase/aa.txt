@@ -1,0 +1,148 @@
+--odps sql
+--********************************************************************--
+--author:dianshang_yanxia
+--create time:2019-10-14 17:32:33
+--********************************************************************--
+--odps sql
+--********************************************************************--
+--author:dianshang_yanxia
+--create time:2019-07-09 14:16:14
+--********************************************************************--
+set odps.sql.allow.fullscan=true;
+DROP TABLE IF EXISTS cs_lr_JB_connect_tempu;
+drop table if exists cs_lr_JB_connect_tempuu;
+
+
+ --案件公司
+CREATE TABLE IF NOT  EXISTS cs_lr_JB_connect_tempu AS
+select substr(DATETRUNC(r.create_time, 'dd'),1,10) days,substr(DATETRUNC(r.create_time, 'dd'),1,7) month,u.real_name,u.group_id,
+case when n.relation is not null then ' 汇总' end status,
+case when u.group_id =73 then '花吧-房途' when u.group_id =74 then '借吧-房途' end group_name,
+    cu.user_num user_num_all, --委案用户量
+    cu.case_num case_num_all, --委案案件量
+    count(DISTINCT case when r.is_delete=0 then r.called end ) user_num,  --拨打用户量
+    count(case when r.is_delete=0 then r.id end ) all_num,  --拨打量
+    count(case when  (r.duration like '%:%' and r.duration >'00:00:00') or (r.duration not like '%:%' and r.duration >0) then r.id end) connect_num,  --接通
+    count(case when  (r.duration like '%:%' and r.duration >'00:00:15') or (r.duration not like '%:%' and r.duration >15) then r.id end) effective_num,  --有效接通
+    count(case when  call_res in (3,8,99)then r.id end) arrive_num,  --抵达
+    sum(case when  r.duration not like '%:%'and r.duration >'0' then 0
+         when  r.duration like '%:%'and r.duration >'00:00:00' then
+    cast(substr(r.duration,1,2) as bigint)*3600+cast(substr(r.duration,4,2) as bigint)*60+cast(substr(r.duration,7,2)as bigint) end )
+    +sum(case when  r.duration is not null and r.duration like '%:%' then 0
+         when  r.duration is not null and  r.duration >0  then r.duration else 0 end )  connect_time,   --接通时间
+    sum(case when  r.duration not like '%:%'and r.duration >'0' then 0
+         when  r.duration like '%:%'and r.duration >'00:00:15' then
+    cast(substr(r.duration,1,2) as bigint)*3600+cast(substr(r.duration,4,2) as bigint)*60+cast(substr(r.duration,7,2)as bigint) end )
+    +sum(case when  r.duration is not null and r.duration like '%:%' then 0
+         when  r.duration is not null and  r.duration >15  then r.duration else 0 end )  effective_time,  --有效时间
+    DATEDIFF(res_time,req_time,'ss') all_time     --挂断减抵达时长
+from  arc_collect_remark r
+left join arc_phone_number n on r.phone_number_id=n.id
+LEFT JOIN arc_system_user s on  r.user_id= s.id
+left join arc_collector_user u on s.employee_id = u.id
+left join
+(select  substr(DATETRUNC(cu.create_time, 'dd'),1,10) days,cu.sys_user_id,count(DISTINCT cc.user_name) user_num,count(DISTINCT cu.case_id) case_num
+from arc_case_user cu
+left join arc_case cc on cu.case_id=cc.id
+where  substr(DATETRUNC(cu.create_time, 'dd'),1,10)>'2019-09-14'
+group BY DATETRUNC(cu.create_time, 'dd'),cu.sys_user_id
+) cu on substr(DATETRUNC(r.create_time, 'dd'),1,10)=cu.days and s.id=cu.sys_user_id
+where u.group_id in (73,74)
+and substr(DATETRUNC(r.create_time, 'dd'),1,10)>'2019-05-14'
+and r.is_delete=0
+and req_time is not null
+and n.type !=0
+group by substr(DATETRUNC(r.create_time, 'dd'),1,10),
+substr(DATETRUNC(r.create_time, 'dd'),1,7),u.group_id,u.real_name,cu.user_num,cu.case_num,r.is_delete,res_time,req_time,r.duration,n.relation;
+
+
+
+
+--本人、通讯录
+CREATE TABLE IF NOT  EXISTS cs_lr_JB_connect_tempuu AS
+select substr(DATETRUNC(r.create_time, 'dd'),1,10) days,substr(DATETRUNC(r.create_time, 'dd'),1,7) month,u.real_name,u.group_id,
+case when n.relation =1 then '本人' when n.relation=8 then '紧急联系人' when n.relation not in (1,8) then '通讯录' end status,
+case when u.group_id =73 then '花吧-房途-M1' when u.group_id =74 then '借吧-房途-M1' end group_name,
+    cu.user_num user_num_all, --委案用户量
+    cu.case_num case_num_all, --委案案件量
+    count(DISTINCT case when r.is_delete=0 then r.called end ) user_num,  --拨打用户量
+    count(case when r.is_delete=0 then r.id end ) all_num,  --拨打量
+    count(case when  (r.duration like '%:%' and r.duration >'00:00:00') or (r.duration not like '%:%' and r.duration >0) then r.id end) connect_num,  --接通
+    count(case when  (r.duration like '%:%' and r.duration >'00:00:15') or (r.duration not like '%:%' and r.duration >15) then r.id end) effective_num,  --有效接通
+    count(case when  call_res in (3,8,99)then r.id end) arrive_num,  --抵达
+    sum(case when  r.duration not like '%:%'and r.duration >'0' then 0
+         when  r.duration like '%:%'and r.duration >'00:00:00' then
+    cast(substr(r.duration,1,2) as bigint)*3600+cast(substr(r.duration,4,2) as bigint)*60+cast(substr(r.duration,7,2)as bigint) end )
+    +sum(case when  r.duration is not null and r.duration like '%:%' then 0
+         when  r.duration is not null and  r.duration >0  then r.duration else 0 end )  connect_time,   --接通时间
+    sum(case when  r.duration not like '%:%'and r.duration >'0' then 0
+         when  r.duration like '%:%'and r.duration >'00:00:15' then
+    cast(substr(r.duration,1,2) as bigint)*3600+cast(substr(r.duration,4,2) as bigint)*60+cast(substr(r.duration,7,2)as bigint) end )
+    +sum(case when  r.duration is not null and r.duration like '%:%' then 0
+         when  r.duration is not null and  r.duration >15  then r.duration else 0 end )  effective_time,  --有效时间
+    DATEDIFF(res_time,req_time,'ss') all_time     --挂断减抵达时长
+from  arc_collect_remark r
+left join arc_phone_number n on r.phone_number_id=n.id
+LEFT JOIN arc_system_user s on  r.user_id= s.id
+left join arc_collector_user u on s.employee_id = u.id
+left join
+(select  substr(DATETRUNC(cu.create_time, 'dd'),1,10) days,cu.sys_user_id,count(DISTINCT cc.user_name) user_num,count(DISTINCT cu.case_id) case_num
+from arc_case_user cu
+left join arc_case cc on cu.case_id=cc.id
+where  substr(DATETRUNC(cu.create_time, 'dd'),1,10)>'2019-09-14'
+group BY DATETRUNC(cu.create_time, 'dd'),cu.sys_user_id
+) cu on substr(DATETRUNC(r.create_time, 'dd'),1,10)=cu.days and s.id=cu.sys_user_id
+where u.group_id in (73,74) and u.is_delete=0 and s.status=0
+and substr(DATETRUNC(r.create_time, 'dd'),1,10)>'2019-09-14'
+and r.is_delete=0
+and req_time is not null
+and n.type !=0
+group by substr(DATETRUNC(r.create_time, 'dd'),1,10),substr(DATETRUNC(r.create_time, 'dd'),1,7),
+u.group_id,u.real_name,cu.user_num,cu.case_num,r.is_delete,res_time,req_time,r.duration,n.relation;
+
+
+
+
+
+
+
+
+
+--借吧日报
+INSERT OVERWRITE TABLE cs_lr_connect_rate_result_jbu
+select days,group_name,real_name,user_num_all,case_num_all,sum(user_num) user_num,sum(all_num) all_num,
+sum(connect_num) connect_num,sum(effective_num) effective_num,sum(connect_time)/60 connect_time,sum(effective_time)/60 effective_time,
+case when user_num_all=0 then '-' else round(sum(user_num)/user_num_all,4) end user_rate,
+case when sum(all_num)=0 then '-' else round(sum(connect_num)/sum(all_num),4) end connect_rate,
+case when sum(all_num)=0 then '-' else round(sum(effective_num)/sum(all_num),4) end effective_rate,
+case when sum(all_num)=0 then '-' else round(sum(arrive_num)/sum(all_num),4) end arrive_rate,
+sum(arrive_num) arrive_num,sum(all_time)/60 arrive_time,status
+FROM cs_lr_JB_connect_tempu where group_name = "借吧-房途-M1" group by days,group_name,real_name,user_num_all,case_num_all,status
+UNION ALL
+select days,group_name,real_name,user_num_all,case_num_all,sum(user_num) user_num,sum(all_num) all_num,
+sum(connect_num) connect_num,sum(effective_num) effective_num,sum(connect_time)/60 connect_time,sum(effective_time)/60 effective_time,
+case when user_num_all=0 then '-' else round(sum(user_num)/user_num_all,4) end user_rate,
+case when sum(all_num)=0 then '-' else round(sum(connect_num)/sum(all_num),4) end connect_rate,
+case when sum(all_num)=0 then '-' else round(sum(effective_num)/sum(all_num),4) end effective_rate,
+case when sum(all_num)=0 then '-' else round(sum(arrive_num)/sum(all_num),4) end arrive_rate,
+sum(arrive_num) arrive_num,sum(all_time)/60 arrive_time,status
+FROM cs_lr_JB_connect_tempuu where group_name = "借吧-房途-M1" group by days,group_name,real_name,user_num_all,case_num_all,status ;
+--花吧日报
+INSERT OVERWRITE TABLE cs_lr_connect_rate_result_hbu
+select days,group_name,real_name,user_num_all,case_num_all,sum(user_num) user_num,sum(all_num) all_num,
+sum(connect_num) connect_num,sum(effective_num) effective_num,sum(connect_time)/60 connect_time,sum(effective_time)/60 effective_time,
+case when user_num_all=0 then '-' else round(sum(user_num)/user_num_all,4) end user_rate,
+case when sum(all_num)=0 then '-' else round(sum(connect_num)/sum(all_num),4) end connect_rate,
+case when sum(all_num)=0 then '-' else round(sum(effective_num)/sum(all_num),4) end effective_rate,
+case when sum(all_num)=0 then '-' else round(sum(arrive_num)/sum(all_num),4) end arrive_rate,
+sum(arrive_num) arrive_num,sum(all_time)/60 arrive_time,status
+FROM cs_lr_JB_connect_tempu where group_name = "花吧-房途-M1" group by days,group_name,real_name,user_num_all,case_num_all,status
+UNION ALL
+select days,group_name,real_name,user_num_all,case_num_all,sum(user_num) user_num,sum(all_num) all_num,
+sum(connect_num) connect_num,sum(effective_num) effective_num,sum(connect_time)/60 connect_time,sum(effective_time)/60 effective_time,
+case when user_num_all=0 then '-' else round(sum(user_num)/user_num_all,4) end user_rate,
+case when sum(all_num)=0 then '-' else round(sum(connect_num)/sum(all_num),4) end connect_rate,
+case when sum(all_num)=0 then '-' else round(sum(effective_num)/sum(all_num),4) end effective_rate,
+case when sum(all_num)=0 then '-' else round(sum(arrive_num)/sum(all_num),4) end arrive_rate,
+sum(arrive_num) arrive_num,sum(all_time)/60 arrive_time,status
+FROM cs_lr_JB_connect_tempuu where group_name = "花吧-房途-M1" group by days,group_name,real_name,user_num_all,case_num_all,status;

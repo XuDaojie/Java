@@ -2,4 +2,5 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 //    compile "com.rabbitmq:activemq.amqp-client:${rabbitMQVersion}"
     compile group: 'com.rabbitmq', name: 'amqp-client', version: '4.0.2'
+    compile "org.redisson:redisson:$redissonVersion"
 }

@@ -10,6 +10,7 @@ buildscript {
         sl4jVersion = '1.7.21'
         mybatisVersion = '3.5.4'
         mysqlVersion = '8.0.19'
+        redissonVersion = '3.12.5'
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
@@ -62,4 +63,3 @@ subprojects {
 //        compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     }
 }
-
