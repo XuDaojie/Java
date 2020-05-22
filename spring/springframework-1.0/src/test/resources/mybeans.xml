@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="testBean" class="io.github.xudaojie.springframework.beans.AccountBean" init-method="init">
+        <property name="name">
+            <value>spring</value>
+        </property>
+        <property name="password">
+            <value>123456</value>
+        </property>
+        <property name="testGroupBean">
+            <ref bean="testGroupBean"/>
+        </property>
+    </bean>
+
+    <bean id="testGroupBean" class="io.github.xudaojie.springframework.beans.GroupBean">
+        <property name="name">
+            <value>root</value>
+        </property>
+        <property name="description">
+            <value>超级管理员</value>
+        </property>
+    </bean>
+
+    <bean id="autowireAccountBean" class="io.github.xudaojie.springframework.beans.AccountBean" singleton="false" autowire="byType">
+        <property name="name">
+            <value>spring-autowire</value>
+        </property>
+        <property name="password">
+            <value>123456</value>
+        </property>
+    </bean>
+
+    <bean class="io.github.xudaojie.springframework.beans.TestBeanPostProcessor"/>
+
+    <bean class="io.github.xudaojie.springframework.context.listener.MyApplicationListener"/>
+</beans>
