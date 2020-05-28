@@ -192,4 +192,5 @@ build/
 !gradle/wrapper/*
 *.iml
 */out
+**/out
 logs

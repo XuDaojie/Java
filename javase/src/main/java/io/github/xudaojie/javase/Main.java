@@ -1,7 +1,5 @@
 package io.github.xudaojie.javase;
 
-import io.github.xudaojie.javase.demo.VolatileDemo;
-
 /**
  * Created by xdj on 2017/5/8.
  */
@@ -18,7 +16,7 @@ public class Main {
 
 //        SynchronizedThread.test();
 
-        VolatileDemo.test();
-
+//        VolatileDemo.test();
+        System.out.println("sss");
     }
 }

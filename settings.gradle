@@ -10,4 +10,5 @@ include ':mybatis-3'
 include ':spring'
 include ':spring:spring-boot'
 include ':spring:spring-cloud'
+include ':spring:springframework-1.0'
 

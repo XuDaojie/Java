@@ -9,8 +9,9 @@ buildscript {
         springRabbitVersion = '1.7.3.RELEASE'
         sl4jVersion = '1.7.21'
         mybatisVersion = '3.5.4'
-        mysqlVersion = '8.0.19'
+        mysqlVersion = '5.1.47'
         redissonVersion = '3.12.5'
+        sqliteJdbcVersion = '3.7.2'
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
@@ -58,6 +59,7 @@ subprojects {
 //    }
 
     dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'], excludes: ['spring.jar'])
         testCompile group: 'junit', name: 'junit', version: '4.12'
 //        compile 'org.springframework.cloud:spring-cloud-starter-config'
 //        compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
