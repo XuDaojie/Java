@@ -1,4 +1,4 @@
-package io.github.xudaojie.springframework.bean;
+package io.github.xudaojie.springframework.beans;
 
 import org.junit.Before;
 import org.junit.Test;

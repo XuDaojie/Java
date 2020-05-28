@@ -1,4 +1,4 @@
-package io.github.xudaojie.springframework.listener;
+package io.github.xudaojie.springframework.context.listener;
 
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;

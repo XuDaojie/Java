@@ -1,4 +1,4 @@
-package io.github.xudaojie.springframework.bean;
+package io.github.xudaojie.springframework.beans;
 
 /**
  * 用户

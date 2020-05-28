@@ -1,10 +1,11 @@
-package io.github.xudaojie.springframework;
+package io.github.xudaojie.springframework.context;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import io.github.xudaojie.springframework.bean.AccountBean;
+import io.github.xudaojie.springframework.beans.AccountBean;
+import io.github.xudaojie.springframework.beans.BeanFactoryTests;
 
 public class ApplicationContextTests {
 
