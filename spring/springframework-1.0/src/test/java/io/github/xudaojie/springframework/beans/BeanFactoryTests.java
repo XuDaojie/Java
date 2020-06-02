@@ -13,6 +13,8 @@ import org.springframework.core.io.ResourceLoader;
 import java.io.FileNotFoundException;
 import java.util.Map;
 
+import io.github.xudaojie.springframework.common.AccountBean;
+
 public class BeanFactoryTests {
 
     private BeanFactory beanFactory;

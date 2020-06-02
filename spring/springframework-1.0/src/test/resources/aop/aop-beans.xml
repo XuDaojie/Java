@@ -23,16 +23,6 @@
         </property>
     </bean>
 
-    <bean id="autowireAccountBean" class="io.github.xudaojie.springframework.common.AccountBean" singleton="false" autowire="byType">
-        <property name="name">
-            <value>spring-autowire</value>
-        </property>
-        <property name="password">
-            <value>123456</value>
-        </property>
-    </bean>
-
-    <bean class="io.github.xudaojie.springframework.beans.TestBeanPostProcessor"/>
-
-    <bean class="io.github.xudaojie.springframework.context.listener.MyApplicationListener"/>
+    <bean id="printArgsAdvice" class="io.github.xudaojie.springframework.aop.PrintArgsAdvice"/>
+    <bean id="debugInterceptor" class="org.springframework.aop.interceptor.DebugInterceptor"/>
 </beans>

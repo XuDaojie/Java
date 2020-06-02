@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import io.github.xudaojie.springframework.beans.AccountBean;
+import io.github.xudaojie.springframework.common.AccountBean;
 import io.github.xudaojie.springframework.beans.BeanFactoryTests;
 
 public class ApplicationContextTests {

@@ -1,9 +1,11 @@
-package io.github.xudaojie.springframework.beans;
+package io.github.xudaojie.springframework.common;
 
 /**
  * 用户
  */
 public class AccountBean {
+
+    private String tag;
 
     private String name;
 
@@ -37,6 +39,14 @@ public class AccountBean {
 
     public void setTestGroupBean(GroupBean testGroupBean) {
         this.testGroupBean = testGroupBean;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     @Override
