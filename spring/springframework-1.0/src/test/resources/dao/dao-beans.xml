@@ -2,6 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
+    <!--  jdbc  -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName">
             <value>org.sqlite.JDBC</value>
@@ -32,6 +33,33 @@
     <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
         <property name="transactionManager">
             <ref bean="transactionManager"/>
+        </property>
+    </bean>
+
+    <bean id="accountDao" class="io.github.xudaojie.springframework.common.dao.impl.AccountDaoImpl">
+        <constructor-arg>
+            <ref bean="jdbcTemplate"/>
+        </constructor-arg>
+    </bean>
+    <bean id="accountService" class="io.github.xudaojie.springframework.common.service.impl.AccountServiceImpl">
+        <constructor-arg>
+            <ref bean="accountDao"/>
+        </constructor-arg>
+    </bean>
+    <bean id="accountServiceTx" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="target">
+            <ref bean="accountService"/>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="insert*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="del*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
         </property>
     </bean>
 </beans>

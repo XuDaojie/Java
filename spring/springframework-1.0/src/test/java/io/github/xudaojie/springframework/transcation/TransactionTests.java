@@ -17,6 +17,9 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.sql.SQLException;
 
+import io.github.xudaojie.springframework.common.AccountBean;
+import io.github.xudaojie.springframework.common.service.AccountService;
+
 import static org.junit.Assert.assertEquals;
 
 public class TransactionTests {
@@ -74,6 +77,24 @@ public class TransactionTests {
                  updateThrowException();
             }
         });
+    }
+
+    /**
+     * 使用TransactionProxyFactoryBean实现事务，
+     * 测试第二条insert时抛异常可以进行回滚
+     */
+    @Test
+    public void transactionProxyFactoryBeanTest() {
+        AccountBean account1 = new AccountBean();
+        account1.setName("account1");
+        account1.setPassword("123456");
+
+        AccountBean account2 = new AccountBean();
+        account2.setName(null);
+        account2.setPassword(null);
+
+        AccountService accountDaoTx = (AccountService) beanFactory.getBean("accountServiceTx");
+        accountDaoTx.insert2Account(account1, account2);
     }
 
     public String selectByPwd() {
