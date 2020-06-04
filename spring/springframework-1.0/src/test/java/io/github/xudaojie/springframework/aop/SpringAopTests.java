@@ -1,12 +1,15 @@
 package io.github.xudaojie.springframework.aop;
 
+import org.aopalliance.aop.Advice;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.aop.MethodBeforeAdvice;
+import org.springframework.aop.Pointcut;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.aop.interceptor.DebugInterceptor;
+import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -111,7 +114,6 @@ public class SpringAopTests {
     @Test
     public void proxyFactoryBeanGlobalTest() {
         AccountBean account = new AccountBean();
-        MethodBeforeAdvice beforeAdvice = new PrintArgsAdvice();
 
         this.proxyFactoryBean.setTarget(account);
         // 全局interceptor不能为最后一个
@@ -125,5 +127,22 @@ public class SpringAopTests {
         accountProxy.setName("在通知（Advice）中打印参数");
     }
 
+    /**
+     * 使用Pointcut过滤AOP
+     */
+    @Test
+    public void pointCutTest() {
+        AccountBean account = new AccountBean();
 
+        Pointcut pointcut = new SimpleStaticMethodMatcherPointcut();
+        Advice advice = new PrintArgsAdvice();
+        DefaultPointcutAdvisor pointcutAdvisor = new DefaultPointcutAdvisor(pointcut, advice);
+
+        ProxyFactory proxyFactory = new ProxyFactory();
+        proxyFactory.addAdvisor(pointcutAdvisor);
+        proxyFactory.setTarget(account);
+
+        AccountBean accountProxy = (AccountBean) proxyFactory.getProxy();
+        accountProxy.setName("在通知（Advice）中打印参数");
+    }
 }

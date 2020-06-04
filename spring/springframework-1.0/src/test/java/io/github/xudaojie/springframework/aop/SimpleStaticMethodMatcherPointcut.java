@@ -8,6 +8,8 @@ public class SimpleStaticMethodMatcherPointcut extends StaticMethodMatcherPointc
 
     @Override
     public boolean matches(Method m, Class targetClass) {
+        System.out.println("Pointcut -> " + this.getClass());
+//        return false;
         return true;
     }
 
