@@ -18,10 +18,11 @@ buildscript {
         mavenCentral()
         jcenter()
     }
+
     dependencies {
         // gretty支持热部署、HTTPS、转发、调试、自动化运行环境等诸多特性
 //        classpath 'org.akhikhl.gretty:gretty:1.4.2'
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+//        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
         classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
     }
 }

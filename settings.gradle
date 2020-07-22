@@ -5,6 +5,8 @@ include ':javase:proxy'
 include ':javaee'
 include ':scala'
 
+include ':netty'
+
 include ':mybatis-3'
 
 include ':spring'

@@ -194,3 +194,4 @@ build/
 */out
 **/out
 logs
+!spring/spring-framework-1.0/libs/**

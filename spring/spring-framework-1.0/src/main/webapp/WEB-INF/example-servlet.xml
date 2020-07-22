@@ -32,7 +32,16 @@
 	  -     return null;
 	  -   }
     -->
-	<bean name="/test1" class="io.github.xudaojie.springframework.web.example.Test1Controller"/>
+<!--    不配置handleMapping，则默认为BeanNameUrlHandlerMapping -->
+    <bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <bean class="io.github.xudaojie.springframework.web.example.DurationInterceptor"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="/test1" class="io.github.xudaojie.springframework.web.example.Test1Controller"/>
     <bean name="/test2" class="io.github.xudaojie.springframework.web.example.Test2Controller">
         <property name="supportedMethods">
             <value>GET</value>
@@ -48,7 +57,12 @@
     </bean>
     <bean name="/test4" class="io.github.xudaojie.springframework.web.example.Test4Controller">
     </bean>
-<!--    <bean name="/test5" class="io.github.xudaojie.springframework.web.example.Test4Controller"/>-->
+    <bean name="/test5" class="io.github.xudaojie.springframework.web.example.Test4Controller"/>
+    <bean name="/test6" class="org.springframework.web.servlet.mvc.multiaction.MultiActionController">
+        <property name="delegate">
+            <bean class="io.github.xudaojie.springframework.web.example.Test6Delegate"/>
+        </property>
+    </bean>
 
 	<!--
 	  - Optional: Explicit InternalResourceViewResolver definition,
