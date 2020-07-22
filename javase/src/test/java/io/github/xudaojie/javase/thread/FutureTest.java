@@ -1,4 +1,4 @@
-package io.github.xudaojie.javase.future;
+package io.github.xudaojie.javase.thread;
 
 import org.junit.Test;
 
