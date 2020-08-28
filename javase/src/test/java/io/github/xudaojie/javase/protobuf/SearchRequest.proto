@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+// 默认生成的 .java文件不包含包
+package io.github.xudaojie.javase.protobuf;
+//option java_package = "io.github.xudaojie.javase.protobuf";
+
+// .java文件名不能与 .proto文件名相同
+option java_outer_classname = "SearchRequestPacket";
+
+message SearchRequest {
+    string query = 1;
+    int32  page_number = 2;
+    int32 result_per_page = 3;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+package io.github.xudaojie.javase.protobuf;
+
+option java_package = "io.github.xudaojie.javase.protobuf";
+
+message Packet {
+    //[default = 17];
+    oneof magic_number_present {
+        int32 magic_number = 1;
+    }
+    // [default = 1]
+    oneof version_present {
+        int32 version = 2;
+    };
+    bytes body = 4;
+}

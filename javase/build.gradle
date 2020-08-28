@@ -4,4 +4,7 @@ dependencies {
 
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: "$sqliteJdbcVersion"
     compile group: 'mysql', name: 'mysql-connector-java', version: "$mysqlVersion"
+    compile group: 'com.lmax', name: 'disruptor', version: '3.4.2'
+    compile 'com.google.protobuf:protobuf-java:3.11.0'
+
 }
