@@ -11,9 +11,8 @@ import com.lmax.disruptor.EventHandler;
 public class LongEventHandler implements EventHandler<LongEvent> {
     @Override
     public void onEvent(LongEvent event, long sequence, boolean endOfBatch) throws Exception {
-        System.out.println(Thread.currentThread().getName() + "; Event: " + event
+        System.out.println("消费者: " + Thread.currentThread().getName() + "; Event: " + event
             + "; sequence: " + sequence + "; endOfBatch: " + endOfBatch
             + "; Value: " + event.getValue());
-
     }
 }
