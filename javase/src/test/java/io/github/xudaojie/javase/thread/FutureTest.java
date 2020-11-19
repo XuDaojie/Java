@@ -34,10 +34,10 @@ public class FutureTest {
         CompletableFuture<String> future1 = CompletableFuture.supplyAsync(new Supplier<String>() {
             @Override
             public String get() {
-                System.out.println(System.currentTimeMillis() + " HelloWorld");
+                System.out.println(Thread.currentThread().getName() + "-" + System.currentTimeMillis() + " HelloWorld");
 
                 try {
-                    Thread.sleep(8000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -47,10 +47,10 @@ public class FutureTest {
         CompletableFuture<String> future2 = CompletableFuture.supplyAsync(new Supplier<String>() {
             @Override
             public String get() {
-                System.out.println(System.currentTimeMillis() + " 翻过长城");
+                System.out.println(Thread.currentThread().getName() + "-" + System.currentTimeMillis() + " 翻过长城");
 
                 try {
-                    Thread.sleep(8000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -60,9 +60,9 @@ public class FutureTest {
 
         // 等执行完毕后返回
         String str1 = future1.get();
-        System.out.println(System.currentTimeMillis() + " future1.get() = " + str1);
+        System.out.println(Thread.currentThread().getName() + "-" + System.currentTimeMillis() + " future1.get() = " + str1);
         String str2 = future2.get();
-        System.out.println(System.currentTimeMillis() + " future2.get() = " + str2);
+        System.out.println(Thread.currentThread().getName() + "-" + System.currentTimeMillis() + " future2.get() = " + str2);
     }
 
     @Test

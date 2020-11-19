@@ -1,0 +1,5 @@
+description "测试classloader LinkageError"
+
+dependencies {
+    compile project(":javase:classloader_data")
+}

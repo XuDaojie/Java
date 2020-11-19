@@ -1,0 +1,4 @@
+description "测试classloader LinkageError"
+
+dependencies {
+}

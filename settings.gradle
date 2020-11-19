@@ -1,7 +1,12 @@
 rootProject.name = 'Java'
 
+include ':scaffolding'
+
 include ':javase'
 include ':javase:proxy'
+include ':javase:classloader_i'
+include ':javase:classloader_impl'
+include ':javase:classloader_data'
 include ':javaee'
 include ':scala'
 
