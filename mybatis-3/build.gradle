@@ -1,4 +1,6 @@
 dependencies {
     compile group: 'org.mybatis', name: 'mybatis', version: "$mybatisVersion"
     compile group: 'mysql', name: 'mysql-connector-java', version: "$mysqlVersion"
+    compile group: 'com.google.guava', name: 'guava', version: "$guavaVersion"
+    compile group: 'org.mybatis.caches', name: 'mybatis-redis', version: "1.0.0-beta2"
 }

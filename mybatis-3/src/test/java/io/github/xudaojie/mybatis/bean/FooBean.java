@@ -1,11 +1,15 @@
 package io.github.xudaojie.mybatis.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class GoodsBean {
+
+public class FooBean implements Serializable {
     private Long id;
+    private String foo;
+
     private Date gmtCreate;
-    private String name;
+    private Date gmtModify;
 
     public Long getId() {
         return id;
@@ -13,6 +17,14 @@ public class GoodsBean {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFoo() {
+        return foo;
+    }
+
+    public void setFoo(String foo) {
+        this.foo = foo;
     }
 
     public Date getGmtCreate() {
@@ -23,20 +35,21 @@ public class GoodsBean {
         this.gmtCreate = gmtCreate;
     }
 
-    public String getName() {
-        return name;
+    public Date getGmtModify() {
+        return gmtModify;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGmtModify(Date gmtModify) {
+        this.gmtModify = gmtModify;
     }
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("GoodsBean{");
+        final StringBuffer sb = new StringBuffer("FooBean{");
         sb.append("id=").append(id);
+        sb.append(", foo='").append(foo).append('\'');
         sb.append(", gmtCreate=").append(gmtCreate);
-        sb.append(", goodsName='").append(name).append('\'');
+        sb.append(", gmtModify=").append(gmtModify);
         sb.append('}');
         return sb.toString();
     }

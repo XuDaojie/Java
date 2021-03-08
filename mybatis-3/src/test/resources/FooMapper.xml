@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.xudaojie.mybatis.mapper.FooMapper">
+    <cache type="org.mybatis.caches.redis.RedisCache" />
+<!--    <cache/>-->
+    <select id="findById" resultType="io.github.xudaojie.mybatis.bean.FooBean">
+        select * from foo where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="io.github.xudaojie.mybatis.bean.FooBean">
+        INSERT INTO foo (`foo`) VALUES (#{fooBean.foo})
+    </insert>
+</mapper>

@@ -1,0 +1,139 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : mysql-5.7
+ Source Server Type    : MySQL
+ Source Server Version : 50728
+ Source Host           : 127.0.0.1:3306
+ Source Schema         : demo
+
+ Target Server Type    : MySQL
+ Target Server Version : 50728
+ File Encoding         : 65001
+
+ Date: 19/11/2020 16:26:44
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for foo
+-- ----------------------------
+DROP TABLE IF EXISTS `foo`;
+CREATE TABLE `foo` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `foo` varchar(255) DEFAULT NULL,
+  `gmt_create` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `gmt_modify` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2014 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of foo
+-- ----------------------------
+BEGIN;
+INSERT INTO `foo` VALUES (1, 'bar1', '2020-11-01 08:10:16', '2020-11-19 08:11:05');
+INSERT INTO `foo` VALUES (2, 'bar2', '2020-11-02 08:10:16', '2020-11-19 08:11:15');
+INSERT INTO `foo` VALUES (3, 'bar3', '2020-11-03 08:10:16', '2020-11-19 08:11:19');
+INSERT INTO `foo` VALUES (4, 'bar4', '2020-11-04 08:10:16', '2020-11-19 08:11:23');
+INSERT INTO `foo` VALUES (5, 'bar5', '2020-11-05 08:10:16', '2020-11-19 08:11:37');
+INSERT INTO `foo` VALUES (6, 'bar6', '2020-11-06 08:10:16', '2020-11-19 08:11:45');
+INSERT INTO `foo` VALUES (7, 'bar7', '2020-11-07 08:10:16', '2020-11-19 08:11:51');
+INSERT INTO `foo` VALUES (8, 'bar8', '2020-11-08 08:10:16', '2020-11-19 08:11:57');
+INSERT INTO `foo` VALUES (9, 'bar_bhq', '2020-01-01 17:11:03', '2020-01-01 23:11:35');
+INSERT INTO `foo` VALUES (10, 'bar_yu', '2020-01-01 18:11:31', '2020-01-01 14:11:46');
+INSERT INTO `foo` VALUES (11, 'bar_xwskz', '2020-01-01 13:11:26', '2020-01-01 13:11:48');
+INSERT INTO `foo` VALUES (12, 'bar_ebq', '2020-01-01 08:11:13', '2020-01-01 18:11:12');
+INSERT INTO `foo` VALUES (13, 'bar_kwbs', '2020-01-01 19:11:58', '2020-01-01 07:11:06');
+INSERT INTO `foo` VALUES (14, 'bar_wykbt', '2020-01-01 21:11:40', '2020-01-01 20:11:05');
+INSERT INTO `foo` VALUES (15, 'bar_ov', '2020-01-01 17:11:45', '2020-01-01 00:11:46');
+INSERT INTO `foo` VALUES (16, 'bar_vcjy', '2020-01-01 08:11:30', '2020-01-01 01:11:16');
+INSERT INTO `foo` VALUES (17, 'bar_ljrbu', '2020-01-01 02:11:23', '2020-01-01 10:11:01');
+INSERT INTO `foo` VALUES (18, 'bar_dwcca', '2020-01-01 02:11:17', '2020-01-01 23:11:14');
+INSERT INTO `foo` VALUES (19, 'bar_mv', '2020-01-01 00:11:21', '2020-01-01 07:11:06');
+INSERT INTO `foo` VALUES (20, 'bar_bsio', '2020-01-01 02:11:58', '2020-01-01 05:11:19');
+INSERT INTO `foo` VALUES (21, 'bar_vjt', '2020-01-01 23:11:09', '2020-01-01 15:11:13');
+INSERT INTO `foo` VALUES (22, 'bar_dndc', '2020-01-01 06:11:41', '2020-01-01 00:11:27');
+INSERT INTO `foo` VALUES (23, 'bar_alhwz', '2020-01-01 15:11:32', '2020-01-01 05:11:31');
+INSERT INTO `foo` VALUES (24, 'bar_dhcte', '2020-01-01 13:11:38', '2020-01-01 09:11:06');
+INSERT INTO `foo` VALUES (25, 'bar_fgq', '2020-01-01 19:11:14', '2020-01-01 08:11:26');
+INSERT INTO `foo` VALUES (26, 'bar_xxpy', '2020-01-01 18:11:17', '2020-01-01 12:11:13');
+INSERT INTO `foo` VALUES (27, 'bar_mui', '2020-01-01 02:11:20', '2020-01-01 20:11:03');
+INSERT INTO `foo` VALUES (28, 'bar_yz', '2020-01-01 20:11:23', '2020-01-01 17:11:17');
+INSERT INTO `foo` VALUES (29, 'bar_dq', '2020-01-01 19:11:09', '2020-01-01 16:11:50');
+INSERT INTO `foo` VALUES (30, 'bar_ksuk', '2020-01-01 09:11:26', '2020-01-01 06:11:49');
+INSERT INTO `foo` VALUES (31, 'bar_ulpd', '2020-01-01 14:11:43', '2020-01-01 01:11:17');
+INSERT INTO `foo` VALUES (32, 'bar_rs', '2020-01-01 16:11:46', '2020-01-01 18:11:39');
+INSERT INTO `foo` VALUES (33, 'bar_krd', '2020-01-01 05:11:16', '2020-01-01 11:11:28');
+INSERT INTO `foo` VALUES (34, 'bar_eqm', '2020-01-01 02:11:35', '2020-01-01 12:11:07');
+INSERT INTO `foo` VALUES (35, 'bar_quyc', '2020-01-01 20:11:48', '2020-01-01 19:11:36');
+INSERT INTO `foo` VALUES (36, 'bar_fl', '2020-01-01 20:11:07', '2020-01-01 07:11:01');
+INSERT INTO `foo` VALUES (37, 'bar_cpg', '2020-01-01 11:11:33', '2020-01-01 17:11:35');
+INSERT INTO `foo` VALUES (38, 'bar_fne', '2020-01-01 22:11:37', '2020-01-01 10:11:50');
+INSERT INTO `foo` VALUES (39, 'bar_ia', '2020-01-01 19:11:50', '2020-01-01 06:11:15');
+INSERT INTO `foo` VALUES (40, 'bar_wg', '2020-01-01 00:11:15', '2020-01-01 02:11:10');
+INSERT INTO `foo` VALUES (41, 'bar_rypx', '2020-01-01 05:11:59', '2020-01-01 18:11:38');
+INSERT INTO `foo` VALUES (42, 'bar_uez', '2020-01-01 07:11:34', '2020-01-01 07:11:18');
+INSERT INTO `foo` VALUES (43, 'bar_ueuht', '2020-01-01 04:11:27', '2020-01-01 08:11:29');
+INSERT INTO `foo` VALUES (44, 'bar_ggq', '2020-01-01 21:11:52', '2020-01-01 22:11:18');
+INSERT INTO `foo` VALUES (45, 'bar_hnjy', '2020-01-01 20:11:15', '2020-01-01 16:11:53');
+INSERT INTO `foo` VALUES (46, 'bar_ctkj', '2020-01-01 23:11:30', '2020-01-01 18:11:55');
+INSERT INTO `foo` VALUES (47, 'bar_wdz', '2020-01-01 13:11:47', '2020-01-01 08:11:36');
+INSERT INTO `foo` VALUES (48, 'bar_ndf', '2020-01-01 07:11:17', '2020-01-01 05:11:58');
+INSERT INTO `foo` VALUES (49, 'bar_nhrro', '2020-01-01 21:11:14', '2020-01-01 07:11:29');
+INSERT INTO `foo` VALUES (50, 'bar_vxg', '2020-01-01 14:11:11', '2020-01-01 04:11:25');
+INSERT INTO `foo` VALUES (51, 'bar_dxm', '2020-01-01 16:11:03', '2020-01-01 04:11:55');
+INSERT INTO `foo` VALUES (52, 'bar_no', '2020-01-01 21:11:14', '2020-01-01 11:11:14');
+INSERT INTO `foo` VALUES (53, 'bar_unltg', '2020-01-01 15:11:58', '2020-01-01 21:11:22');
+INSERT INTO `foo` VALUES (54, 'bar_uliak', '2020-01-01 09:11:36', '2020-01-01 21:11:41');
+INSERT INTO `foo` VALUES (55, 'bar_ydest', '2020-01-01 23:11:34', '2020-01-01 18:11:49');
+INSERT INTO `foo` VALUES (56, 'bar_fsism', '2020-01-01 16:11:21', '2020-01-01 17:11:37');
+INSERT INTO `foo` VALUES (57, 'bar_sa', '2020-01-01 17:11:38', '2020-01-01 19:11:52');
+INSERT INTO `foo` VALUES (58, 'bar_gnt', '2020-01-01 23:11:36', '2020-01-01 20:11:13');
+INSERT INTO `foo` VALUES (59, 'bar_szibx', '2020-01-01 10:11:35', '2020-01-01 18:11:57');
+INSERT INTO `foo` VALUES (60, 'bar_efoul', '2020-01-01 14:11:28', '2020-01-01 16:11:11');
+INSERT INTO `foo` VALUES (61, 'bar_mr', '2020-01-01 00:11:52', '2020-01-01 14:11:03');
+INSERT INTO `foo` VALUES (62, 'bar_taw', '2020-01-01 16:11:49', '2020-01-01 11:11:22');
+INSERT INTO `foo` VALUES (63, 'bar_vp', '2020-01-01 10:11:13', '2020-01-01 03:11:35');
+INSERT INTO `foo` VALUES (64, 'bar_mynxs', '2020-01-01 15:11:44', '2020-01-01 17:11:14');
+INSERT INTO `foo` VALUES (65, 'bar_aytga', '2020-01-01 07:11:24', '2020-01-01 17:11:18');
+INSERT INTO `foo` VALUES (66, 'bar_vd', '2020-01-01 00:11:33', '2020-01-01 19:11:36');
+INSERT INTO `foo` VALUES (67, 'bar_nlhex', '2020-01-01 20:11:39', '2020-01-01 17:11:26');
+INSERT INTO `foo` VALUES (68, 'bar_hioi', '2020-01-01 22:11:32', '2020-01-01 13:11:05');
+INSERT INTO `foo` VALUES (69, 'bar_nsp', '2020-01-01 10:11:37', '2020-01-01 02:11:52');
+INSERT INTO `foo` VALUES (70, 'bar_fd', '2020-01-01 22:11:26', '2020-01-01 22:11:56');
+INSERT INTO `foo` VALUES (71, 'bar_xetr', '2020-01-01 13:11:39', '2020-01-01 01:11:49');
+INSERT INTO `foo` VALUES (72, 'bar_gvkv', '2020-01-01 20:11:22', '2020-01-01 19:11:10');
+INSERT INTO `foo` VALUES (73, 'bar_blqoo', '2020-01-01 10:11:13', '2020-01-01 18:11:20');
+INSERT INTO `foo` VALUES (74, 'bar_li', '2020-01-01 03:11:32', '2020-01-01 15:11:47');
+INSERT INTO `foo` VALUES (75, 'bar_se', '2020-01-01 13:11:07', '2020-01-01 18:11:03');
+INSERT INTO `foo` VALUES (76, 'bar_ruaue', '2020-01-01 01:11:23', '2020-01-01 17:11:46');
+INSERT INTO `foo` VALUES (77, 'bar_yqmt', '2020-01-01 16:11:06', '2020-01-01 11:11:01');
+INSERT INTO `foo` VALUES (78, 'bar_ifls', '2020-01-01 08:11:54', '2020-01-01 15:11:51');
+INSERT INTO `foo` VALUES (79, 'bar_ecn', '2020-01-01 11:11:00', '2020-01-01 06:11:49');
+INSERT INTO `foo` VALUES (80, 'bar_bhncn', '2020-01-01 13:11:40', '2020-01-01 22:11:08');
+INSERT INTO `foo` VALUES (81, 'bar_pbzl', '2020-01-01 07:11:16', '2020-01-01 01:11:54');
+INSERT INTO `foo` VALUES (82, 'bar_bdxm', '2020-01-01 10:11:35', '2020-01-01 19:11:12');
+INSERT INTO `foo` VALUES (83, 'bar_obe', '2020-01-01 09:11:29', '2020-01-01 12:11:44');
+INSERT INTO `foo` VALUES (84, 'bar_fow', '2020-01-01 20:11:26', '2020-01-01 06:11:48');
+INSERT INTO `foo` VALUES (85, 'bar_yd', '2020-01-01 20:11:48', '2020-01-01 08:11:00');
+INSERT INTO `foo` VALUES (86, 'bar_otk', '2020-01-01 20:11:44', '2020-01-01 16:11:01');
+INSERT INTO `foo` VALUES (87, 'bar_ak', '2020-01-01 19:11:48', '2020-01-01 10:11:32');
+INSERT INTO `foo` VALUES (88, 'bar_peamt', '2020-01-01 11:11:11', '2020-01-01 22:11:29');
+INSERT INTO `foo` VALUES (89, 'bar_nr', '2020-01-01 14:11:11', '2020-01-01 08:11:59');
+INSERT INTO `foo` VALUES (90, 'bar_ieog', '2020-01-01 02:11:46', '2020-01-01 23:11:53');
+INSERT INTO `foo` VALUES (91, 'bar_jj', '2020-01-01 10:11:01', '2020-01-01 21:11:49');
+INSERT INTO `foo` VALUES (92, 'bar_wgg', '2020-01-01 05:11:24', '2020-01-01 19:11:31');
+INSERT INTO `foo` VALUES (93, 'bar_gaagp', '2020-01-01 06:11:30', '2020-01-01 03:11:48');
+INSERT INTO `foo` VALUES (94, 'bar_fpjm', '2020-01-01 01:11:47', '2020-01-01 01:11:47');
+INSERT INTO `foo` VALUES (95, 'bar_eo', '2020-01-01 14:11:01', '2020-01-01 11:11:50');
+INSERT INTO `foo` VALUES (96, 'bar_efr', '2020-01-01 10:11:21', '2020-01-01 21:11:58');
+INSERT INTO `foo` VALUES (97, 'bar_hchdc', '2020-01-01 06:11:58', '2020-01-01 22:11:05');
+INSERT INTO `foo` VALUES (98, 'bar_xfstx', '2020-01-01 10:11:25', '2020-01-01 15:11:08');
+INSERT INTO `foo` VALUES (99, 'bar_birf', '2020-01-01 02:11:50', '2020-01-01 12:11:46');
+INSERT INTO `foo` VALUES (100, 'bar_is', '2020-01-01 04:11:20', '2020-01-01 02:11:52');
+INSERT INTO `foo` VALUES (101, 'bar_ikygj', '2020-01-01 21:11:05', '2020-01-01 22:11:46');
+INSERT INTO `foo` VALUES (102, 'bar_wqb', '2020-01-01 05:11:28', '2020-01-01 05:11:33');
+INSERT INTO `foo` VALUES (103, 'bar_kfjfk', '2020-01-01 05:11:03', '2020-01-01 06:11:08');
+COMMIT;

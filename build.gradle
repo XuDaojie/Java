@@ -12,6 +12,7 @@ buildscript {
         mysqlVersion = '5.1.47'
         redissonVersion = '3.12.5'
         sqliteJdbcVersion = '3.7.2'
+        guavaVersion = '22.0'
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
