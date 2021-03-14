@@ -30,6 +30,8 @@ public class MyURLClassLoader extends URLClassLoader {
         } catch (ClassNotFoundException ex) {
             return super.loadClass(name, resolve);
         }
+
+//        return super.loadClass(name, resolve);
     }
 
     public static URLClassLoader newInstance(final URL[] urls) {
