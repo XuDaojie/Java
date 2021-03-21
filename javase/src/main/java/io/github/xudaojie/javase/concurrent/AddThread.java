@@ -1,4 +1,4 @@
-package io.github.xudaojie.javase.thread.concurrent;
+package io.github.xudaojie.javase.concurrent;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;

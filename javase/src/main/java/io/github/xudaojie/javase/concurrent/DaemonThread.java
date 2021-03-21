@@ -1,4 +1,4 @@
-package io.github.xudaojie.javase.thread;
+package io.github.xudaojie.javase.concurrent;
 
 /**
  * 守护线程
