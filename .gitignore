@@ -196,3 +196,4 @@ build/
 logs
 !spring/spring-framework-1.0/libs/**
 __pycache__
+!jvm/asmtools.jar
