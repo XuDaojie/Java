@@ -1,4 +1,4 @@
-package io.github.xudaojie.javase.base;
+package io.github.xudaojie.javase.number;
 
 public class StaticClass {
     static {

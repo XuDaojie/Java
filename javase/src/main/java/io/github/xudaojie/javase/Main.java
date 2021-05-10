@@ -7,7 +7,7 @@ import java.net.MalformedURLException;
  */
 public class Main {
 
-    private static final Long[] l1 = new Long[Integer.MAX_VALUE / 2];
+//    private static final Long[] l1 = new Long[Integer.MAX_VALUE / 2];
 //    private static final Long[] l2 = new Long[Integer.MAX_VALUE / 2];
 //    private static final Long[] l3 = new Long[Integer.MAX_VALUE / 2];
 //    private static final Long[] l4 = new Long[Integer.MAX_VALUE / 2];
@@ -38,6 +38,26 @@ public class Main {
 //        });
 //        IFac fac = (IFac) myURLClassLoader.loadClass("io.github.xudaojie.javase.cl.FacImpl").newInstance();
 //        fac.getData();
+
+//        stopwatch.start();
+        long num = 1;
+//        Stopwatch stopwatch = Stopwatch.createStarted();
+        for (int i = 0; i < 10; i++) {
+            num = num * 2;
+        }
+//        System.out.println(num);
+//        System.out.println(stopwatch.elapsed(TimeUnit.MICROSECONDS));
+
+        num = 1;
+//        stopwatch = Stopwatch.createStarted();
+        for (int i = 0; i < 10; i++) {
+            num = num << 1;
+        }
+//        System.out.println(num);
+//        System.out.println(stopwatch.elapsed(TimeUnit.MICROSECONDS));
+
+
+
     }
 
 }
