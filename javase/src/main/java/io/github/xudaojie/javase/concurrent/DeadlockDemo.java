@@ -1,5 +1,9 @@
 package io.github.xudaojie.javase.concurrent;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
+
 /**
  * @author XuDaojie
  * @since 2021/3/21
@@ -58,7 +62,27 @@ public class DeadlockDemo {
     }
 
     public static void main(String[] args) {
-        //
+        // 侦测死锁
+        ThreadMXBean mxBean = ManagementFactory.getThreadMXBean();
+        Thread findDeadlock = new Thread(){
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    long[] tIds = mxBean.findDeadlockedThreads();
+                    ThreadInfo[] tInfos = mxBean.getThreadInfo(tIds);
+                    for (ThreadInfo threadInfo : tInfos) {
+                        System.out.println(threadInfo.getThreadName());
+                    }
+                }
+            }
+        };
+        findDeadlock.start();
+
         DeadlockDemo demo = new DeadlockDemo();
         demo.deadlock();
     }
