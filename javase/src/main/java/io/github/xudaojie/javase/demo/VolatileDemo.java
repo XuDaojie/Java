@@ -1,5 +1,8 @@
 package io.github.xudaojie.javase.demo;
 
+import com.google.common.base.Stopwatch;
+
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -10,6 +13,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class VolatileDemo {
     public static int count = 0;
     public static AtomicInteger atomicCount = new AtomicInteger(0);
+
+    public static volatile  int V_COUNT = 0;
 
     public static void test() {
 //        test1();
@@ -98,5 +103,26 @@ public class VolatileDemo {
             e.printStackTrace();
         }
         System.out.println("运行结果:Counter.count=" + VolatileDemo.atomicCount);
+    }
+
+    /**
+     * 测试volatile和不加volatile性能差距
+     */
+    public static void test4() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        for (int i = 0; i < 1000000; i++) {
+            V_COUNT++;
+        }
+        System.out.println(V_COUNT + " " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
+
+        stopwatch = Stopwatch.createStarted();
+        for (int i = 0; i < 1000000; i++) {
+            count++;
+        }
+        System.out.println(count + " " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
+    }
+
+    public static void main(String[] args) {
+        test4();
     }
 }

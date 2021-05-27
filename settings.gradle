@@ -20,3 +20,5 @@ include ':spring'
 //include ':spring:spring-cloud'
 include ':spring:spring-boot-2.x'
 include ':spring:spring-framework-1.0'
+
+include ':algorithm'
