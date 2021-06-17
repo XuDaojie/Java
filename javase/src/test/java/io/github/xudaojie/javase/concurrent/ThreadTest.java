@@ -2,6 +2,8 @@ package io.github.xudaojie.javase.concurrent;
 
 import org.junit.Test;
 
+import java.util.concurrent.locks.LockSupport;
+
 /**
  * @author XuDaojie
  * @since 2021/5/6
@@ -42,4 +44,13 @@ public class ThreadTest {
         System.out.println("main");
     }
 
+    /**
+     * LockSupport AQS阻塞线程基于此类
+     */
+    @Test
+    public void lockSupportTest() {
+        System.out.println("线程即将阻塞");
+        LockSupport.park();
+        System.out.println("asdasdsad");
+    }
 }

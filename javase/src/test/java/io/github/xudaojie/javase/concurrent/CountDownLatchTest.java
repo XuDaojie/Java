@@ -18,7 +18,7 @@ public class CountDownLatchTest {
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(50000);
                     countDownLatch.countDown();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
