@@ -65,5 +65,9 @@ subprojects {
         testCompile group: 'junit', name: 'junit', version: '4.12'
 //        compile 'org.springframework.cloud:spring-cloud-starter-config'
 //        compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+        compileOnly 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
+        testCompileOnly 'org.projectlombok:lombok:1.18.16'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
     }
 }

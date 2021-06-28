@@ -3,6 +3,10 @@ dependencies {
     compile project(":javase:classloader_data")
 //    implementation project(":javase:classloader_1")
 
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
 
     compile group: 'com.rabbitmq', name: 'amqp-client', version: "$rabbitMQVersion"
     compile "org.redisson:redisson:$redissonVersion"

@@ -1,0 +1,13 @@
+
+jar {
+    manifest {
+        attributes(
+            "Premain-Class": "io.github.xudaojie.agent.PreMain",
+            "Can-Redefine-Classes": "true",
+            "Can-Retransform-Classes": "true"
+        )
+    }
+}
+
+dependencies {
+}

@@ -7,8 +7,8 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.text.MessageFormat;
 
-import io.github.xudaojie.javase.cl.Data;
-import io.github.xudaojie.javase.cl.IFac;
+import io.github.xudaojie.agent.Data;
+import io.github.xudaojie.agent.IFac;
 import sun.misc.Launcher;
 import sun.misc.URLClassPath;
 
@@ -104,8 +104,8 @@ public class ClassLoaderTest {
 //        Class class1 = loader1.loadClass("io.github.xudaojie.javase.cl.Data");
 //        Class class1_2 = loader2.loadClass("io.github.xudaojie.javase.cl.Data");
 
-        Data class1 = (Data) loader1.loadClass("io.github.xudaojie.javase.cl.Data").newInstance();
-        Data class1_2 = (Data) loader2.loadClass("io.github.xudaojie.javase.cl.Data").newInstance();
+        Data class1 = (Data) loader1.loadClass("io.github.xudaojie.agent.Data").newInstance();
+        Data class1_2 = (Data) loader2.loadClass("io.github.xudaojie.agent.Data").newInstance();
 
         System.out.println(class1.equals(class1_2));
         System.out.println(class1 == class1_2);
