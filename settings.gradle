@@ -13,9 +13,8 @@ include ':lang-scala'
 include ':java-agent:standard'
 include ':java-agent:agent'
 
-include ':netty'
-
-include ':mybatis-3'
+include ':lib-netty'
+include ':lib-mybatis-3'
 
 //include ':spring:spring-boot'
 //include ':spring:spring-cloud'
