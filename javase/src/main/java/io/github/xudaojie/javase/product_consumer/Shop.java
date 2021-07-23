@@ -1,4 +1,4 @@
-package io.github.xudaojie.javase.xx;
+package io.github.xudaojie.javase.product_consumer;
 
 import java.util.Collection;
 import java.util.LinkedList;
