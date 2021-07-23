@@ -9,7 +9,7 @@ include ':javase:classloader_i'
 include ':javase:classloader_impl'
 include ':javase:classloader_data'
 include ':javaee'
-include ':scala'
+include ':lang-scala'
 include ':java-agent:standard'
 include ':java-agent:agent'
 
