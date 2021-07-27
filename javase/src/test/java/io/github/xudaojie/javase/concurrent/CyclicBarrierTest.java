@@ -14,14 +14,18 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class CyclicBarrierTest {
 
+    /**
+     * 所有worker 线程完成睡眠后才会继续执行主线程
+     * @throws InterruptedException ignore
+     */
     @Test
-    public void basicTest() {
+    public void basicTest() throws InterruptedException {
         int tc = Runtime.getRuntime().availableProcessors();
         CyclicBarrier cyclicBarrier = new CyclicBarrier(tc, new Runnable() {
             @Override
             public void run() {
                 // worker 线程执行完tc次后会执行此任务
-                System.out.println("timestamp:" + System.currentTimeMillis() + "-- cyclicBarrier");
+                System.out.println("timestamp:" + System.currentTimeMillis() + " -------------------- cyclicBarrier");
             }
         });
 
@@ -30,24 +34,27 @@ public class CyclicBarrierTest {
             Runnable worker = new Runnable() {
                 @Override
                 public void run() {
-                    while (true) {
-                        System.out.println("timestamp:" + System.currentTimeMillis() + "--" + Thread.currentThread().getName());
-                        Random random = new Random();
-                        try {
-                            Thread.sleep(random.nextInt(10));
-                            cyclicBarrier.await();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        } catch (BrokenBarrierException e) {
-                            e.printStackTrace();
-                        }
+                    Random random = new Random();
+                    int sleepMillis = random.nextInt(2000);
+                    System.out.println("tag::sleep " + sleepMillis + " timestamp:" + System.currentTimeMillis() + "--" + Thread.currentThread().getName());
+                    try {
+                        Thread.sleep(sleepMillis);
+                        cyclicBarrier.await(); // Barrier
+                        System.out.println("end::sleep " + sleepMillis + " timestamp:" + System.currentTimeMillis() + "--" + Thread.currentThread().getName());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (BrokenBarrierException e) {
+                        e.printStackTrace();
                     }
                 }
             };
             new Thread(worker).start();
         }
 
-        // 单元测试中会关闭非守护线程
-//        while (true) {}
+        // 单元测试执行完后会调用System.exit();
+        // 防止线程还没执行完毕，主线程就被关闭
+        Thread.sleep(3000);
+        System.out.println("-------------------------------------------------");
+        System.out.println("run other");
     }
 }
