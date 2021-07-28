@@ -1,0 +1,8 @@
+plugins {
+    id 'org.springframework.boot' version "$boot2x"
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "$boot2x"
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: "1.8.13"
+}
