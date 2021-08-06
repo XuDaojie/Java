@@ -9,10 +9,13 @@ class First {
             String str = a
             println(a)
         }
+
         println("---")
         String[] aa = new String()[2]
         for (String aaa : aa) {
 
         }
+
+        Object map = "as"
     }
 }

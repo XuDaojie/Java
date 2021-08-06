@@ -5,7 +5,8 @@ plugins {
 }
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:2.5.0'
+//    implementation 'org.codehaus.groovy:groovy-all:2.5.0'
 //    implementation 'org.codehaus.groovy:groovy-all:2.4.15'
-//    implementation 'org.codehaus.groovy:groovy-all:3.0.7'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.7'
+//
 }
