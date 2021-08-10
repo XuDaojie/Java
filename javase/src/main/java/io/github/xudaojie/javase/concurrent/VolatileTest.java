@@ -47,13 +47,7 @@ public class VolatileTest {
         public static int count = 0;
         public static AtomicInteger atomicCount = new AtomicInteger(0);
 
-        public static volatile  int V_COUNT = 0;
-
-        public static void test() {
-    //        test1();
-    //        test2();
-            test3();
-        }
+        public static volatile int V_COUNT = 0;
 
         public static void test1() {
             for (int i = 0; i < 10000; i++) {
@@ -67,7 +61,7 @@ public class VolatileTest {
                         }
     //                    synchronized (VolatileDemo.class) {
                         VolatileDemo.count++;
-                        System.out.println(VolatileDemo.count);
+//                        System.out.println(VolatileDemo.count);
     //                    }
                     }
                 }).start();
@@ -82,6 +76,9 @@ public class VolatileTest {
             System.out.println("运行结果:Counter.count=" + VolatileDemo.count);
         }
 
+        /**
+         * 使用ReentrantLock 确保线程安全
+         */
         public static void test2() {
             Lock lock = new ReentrantLock();
             for (int i = 0; i < 10000; i++) {
@@ -111,8 +108,10 @@ public class VolatileTest {
             System.out.println("运行结果:Counter.count=" + VolatileDemo.count);
         }
 
+        /**
+         * 使用原子类
+         */
         public static void test3() {
-            Lock lock = new ReentrantLock();
             for (int i = 0; i < 10000; i++) {
                 new Thread(new Runnable() {
                     @Override
@@ -156,6 +155,9 @@ public class VolatileTest {
         }
 
         public static void main(String[] args) {
+//            test1();
+//            test2();
+//            test3();
             test4();
         }
     }
