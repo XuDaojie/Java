@@ -1,3 +1,4 @@
+// noinspection GroovyAssignabilityCheck
 plugins {
     id 'org.springframework.boot' version "$boot2x"
 }

@@ -1,8 +1,9 @@
+// noinspection GroovyAssignabilityCheck
 plugins {
     id 'org.springframework.boot' version "$boot2x"
 }
 
 dependencies {
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "$boot2x"
-    implementation group: 'org.springframework.data', name: 'spring-data-mongodb', version: "$boot2x"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    implementation group: 'org.springframework.data', name: 'spring-data-mongodb'
 }

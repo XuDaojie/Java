@@ -1,6 +1,7 @@
 group 'MyJava'
 version '1.0-SNAPSHOT'
 
+// noinspection GroovyAssignabilityCheck
 buildscript {
     ext {
         junit = '4.13.1'
@@ -15,22 +16,26 @@ buildscript {
         rabbitMQVersion = '4.0.2'
         springRabbitVersion = '1.7.3.RELEASE'
         sl4jVersion = '1.7.21'
+
         mybatisVersion = '3.5.4'
         mysqlVersion = '5.1.47'
         redissonVersion = '3.12.5'
         sqliteJdbcVersion = '3.7.2'
-        guavaVersion = '22.0'
         shardingsphereVersion = '4.0.1'
+        commonsDbcpVersion = '1.4'
+        mybatisRedisVersion = '1.0.0-beta2'
+        mongoDriverVersion = '3.12.7'
+
+        guavaVersion = '22.0'
         disruptorVersion = '3.4.2'
         protobufVersion = '3.11.0'
-        mongoDriverVersion = '3.12.7'
         commonsIoVersion = "2.8.0"
         cglibVersion = "3.3.0"
-        mybatisRedisVersion = '1.0.0-beta2'
         nettyVersion = '4.1.51.Final'
-        commonsDbcpVersion = '1.4'
         aspectJVersion = "1.8.13"
     }
+
+    // noinspection GroovyAssignabilityCheck
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
         mavenCentral()
@@ -49,7 +54,7 @@ subprojects {
     apply plugin: 'java'
 //    apply plugin: 'idea'
 //    apply plugin: 'org.springframework.boot'
-//    apply plugin: "io.spring.dependency-management"
+    apply plugin: "io.spring.dependency-management"
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -64,16 +69,20 @@ subprojects {
 //        }
 //    }
 
+    // noinspection GroovyAssignabilityCheck
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
         mavenCentral()
     }
 
-//    dependencyManagement {
-//        imports {
+    dependencyManagement {
+        imports {
+            // Edgware 1.5.x
 //            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Edgware.SR3'
-//        }
-//    }
+            // Hoxton 2.2.x, 2.3.x (Starting with SR5)
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12'
+        }
+    }
 
     dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar'], excludes: ['spring.jar'])
