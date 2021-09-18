@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "$boot2x"
-    compile group: 'org.aspectj', name: 'aspectjweaver', version: "1.8.13"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "$boot2x"
+    implementation group: 'org.aspectj', name: 'aspectjweaver', version: "$aspectJVersion"
 }

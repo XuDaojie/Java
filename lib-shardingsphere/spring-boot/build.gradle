@@ -1,0 +1,15 @@
+plugins {
+//    id 'org.springframework.boot' version "$boot2x"
+}
+
+dependencies {
+//    implementation "org.apache.shardingsphere:shardingsphere-jdbc-core:${shardingsphereVersion}"
+
+//    implementation "org.apache.shardingsphere:sharding-jdbc-core:${shardingsphereVersion}"
+    implementation "org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:${shardingsphereVersion}"
+//    implementation "org.apache.shardingsphere:sharding-jdbc-spring-namespace:${shardingsphereVersion}"
+    implementation "commons-dbcp:commons-dbcp:$commonsDbcpVersion"
+    implementation "mysql:mysql-connector-java:${mysqlVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:$boot2x"
+    implementation "org.springframework.boot:spring-boot-starter-data-jdbc:$boot2x"
+}

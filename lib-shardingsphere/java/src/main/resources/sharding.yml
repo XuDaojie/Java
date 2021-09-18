@@ -1,0 +1,21 @@
+#dataSource:  !!org.apache.commons.dbcp2.BasicDataSource
+dataSource:  !!org.apache.commons.dbcp.BasicDataSource
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3307/demo?serverTimezone=UTC&useSSL=false
+  username: root
+  password: 123456
+
+encryptRule:
+  tables:
+    t_foo_ss:
+      columns:
+        foo:
+          cipherColumn: foo
+          encryptor: foo_encryptor
+  encryptors:
+    foo_encryptor:
+      type: md5
+#      props:
+#        aes.key.value: 123456
+props:
+  query.with.cipher.column: true #是否使用密文列查询

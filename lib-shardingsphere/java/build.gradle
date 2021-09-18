@@ -1,0 +1,6 @@
+dependencies {
+//    implementation "org.apache.shardingsphere:shardingsphere-jdbc-core:${shardingsphereVersion}"
+    implementation "org.apache.shardingsphere:sharding-jdbc-core:${shardingsphereVersion}"
+    implementation "commons-dbcp:commons-dbcp:$commonsDbcpVersion"
+    implementation "mysql:mysql-connector-java:${mysqlVersion}"
+}

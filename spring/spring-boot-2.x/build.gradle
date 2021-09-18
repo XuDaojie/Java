@@ -1,10 +1,8 @@
 plugins {
-//    id 'java'
     id 'org.springframework.boot' version "$boot2x"
-//    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "$boot2x"
-    compile group: 'org.springframework.data', name: 'spring-data-mongodb', version: "$boot2x"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "$boot2x"
+    implementation group: 'org.springframework.data', name: 'spring-data-mongodb', version: "$boot2x"
 }

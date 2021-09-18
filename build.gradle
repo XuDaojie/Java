@@ -3,6 +3,13 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext {
+        junit = '4.13.1'
+        lombok = '1.18.16'
+        boot2x = "2.2.0.RELEASE"
+        groovy3x = '3.0.7'
+        scalaVersion = '2.13.1'
+        sparkVersion = '2.4.4'
+
         springVersion = '4.3.9.RELEASE'
         springBootVersion = '1.5.10.RELEASE'
         rabbitMQVersion = '4.0.2'
@@ -13,6 +20,16 @@ buildscript {
         redissonVersion = '3.12.5'
         sqliteJdbcVersion = '3.7.2'
         guavaVersion = '22.0'
+        shardingsphereVersion = '4.0.1'
+        disruptorVersion = '3.4.2'
+        protobufVersion = '3.11.0'
+        mongoDriverVersion = '3.12.7'
+        commonsIoVersion = "2.8.0"
+        cglibVersion = "3.3.0"
+        mybatisRedisVersion = '1.0.0-beta2'
+        nettyVersion = '4.1.51.Final'
+        commonsDbcpVersion = '1.4'
+        aspectJVersion = "1.8.13"
     }
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
@@ -22,7 +39,7 @@ buildscript {
     dependencies {
         // gretty支持热部署、HTTPS、转发、调试、自动化运行环境等诸多特性
 //        classpath 'org.akhikhl.gretty:gretty:1.4.2'
-//        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+//        classpath "org.springframework.boot:spring-boot-gradle-plugin:${boot2x}"
         classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
     }
 }
@@ -59,13 +76,13 @@ subprojects {
 //    }
 
     dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'], excludes: ['spring.jar'])
-        testCompile group: 'junit', name: 'junit', version: '4.12'
+        implementation fileTree(dir: 'libs', include: ['*.jar'], excludes: ['spring.jar'])
+        testImplementation group: 'junit', name: 'junit', version: "$junit"
 //        compile 'org.springframework.cloud:spring-cloud-starter-config'
 //        compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-        compileOnly 'org.projectlombok:lombok:1.18.16'
-        annotationProcessor 'org.projectlombok:lombok:1.18.16'
-        testCompileOnly 'org.projectlombok:lombok:1.18.16'
-        testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+        compileOnly "org.projectlombok:lombok:$lombok"
+        annotationProcessor "org.projectlombok:lombok:$lombok"
+        testCompileOnly "org.projectlombok:lombok:$lombok"
+        testAnnotationProcessor "org.projectlombok:lombok:$lombok"
     }
 }
