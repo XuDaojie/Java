@@ -10,13 +10,13 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2021/10/25
  */
 @Slf4j
-public class LogInterceptor implements MethodInterceptor {
+public class ProxyLogInterceptor implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        log.info("---------before");
+        log.info("proxy ---------before");
         Object obj = invocation.proceed();
-        log.info("---------after");
+        log.info("proxy ---------after");
         return obj;
     }
 }
