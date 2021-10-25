@@ -22,6 +22,7 @@ include ':lib-mybatis-3'
 include ':lib-shardingsphere:java'
 include ':lib-shardingsphere:spring-boot'
 
+include ':spring:spring-aop'
 include ':spring:spring-aspectj'
 //include ':spring:spring-boot'
 //include ':spring:spring-cloud'
